@@ -1,8 +1,5 @@
 @extends('layouts.base')
-@push('addOnTopScript')
-<link rel="stylesheet"
-      href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-@endpush
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
@@ -66,22 +63,3 @@
 </div>
 
 @endsection
-
-
-@push('addOnBottomScript')
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script>
-    var swiper = new Swiper(".mySwiper", {
-            cssMode: true,
-            navigation: {
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            },
-            pagination: {
-              el: ".swiper-pagination",
-            },
-            mousewheel: true,
-            keyboard: true,
-          });
-</script>
-@endpush
