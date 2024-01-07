@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\{DiPinjam, History, HomeController, Literasi, Rank, User,};
 use Illuminate\Support\Facades\{Route, Auth};
 
 /*
@@ -16,7 +16,13 @@ use Illuminate\Support\Facades\{Route, Auth};
 
 
 Auth::routes(['verify' => true]);
+Route::middleware(['auth', 'verified'])->group(function () {
 
-Route::get('/', [HomeController::class, 'index'])->name('home')->middleware('verified');
-
-Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::resource('/pinjam', DiPinjam::class);
+    Route::resource('/history', History::class);
+    Route::resource('/literasi', Literasi::class);
+    Route::resource('/achievment', Rank::class);
+    Route::resource('/user', User::class);
+});

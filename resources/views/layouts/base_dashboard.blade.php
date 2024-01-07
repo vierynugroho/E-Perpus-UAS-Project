@@ -41,27 +41,19 @@
             <div class="sidebar-heading">
                 Your Library
             </div>
-            <!-- Nav Item - Favorite Menu -->
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/favorites') ? 'active' : '' }}""
-                   href="
-                   charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Favorit</span></a>
-            </li>
 
             <!-- Nav Item - Buku Di Pinjam Menu -->
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/pinjam') ? 'active' : '' }}""
+                <a class="nav-link {{ Request::is('pinjam*') ? 'active' : '' }}""
                    href="
-                   charts.html">
+                   /pinjam">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Buku Di Pinjam</span></a>
             </li>
 
             <!-- Nav Item - History Pinjam Menu -->
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/historypinjam') ? 'active' : '' }}""
+                <a class="nav-link {{ Request::is('history*') ? 'active' : '' }}""
                    href="
                    charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -78,7 +70,7 @@
 
             <!-- Nav Item - Achievment -->
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/literasi') ? 'active' : '' }}""
+                <a class="nav-link {{ Request::is('literasi') ? 'active' : '' }}""
                    href="
                    charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -86,7 +78,7 @@
             </li>
             <!-- Nav Item - Achievment -->
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/isiliterasi') ? 'active' : '' }}""
+                <a class="nav-link {{ Request::is('literasi/create') ? 'active' : '' }}""
                    href="
                    charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -103,7 +95,7 @@
 
             <!-- Nav Item - Achievment -->
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/achievment') ? 'active' : '' }}""
+                <a class="nav-link {{ Request::is('achievment') ? 'active' : '' }}""
                    href="
                    charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -112,7 +104,7 @@
 
             <!-- Nav Item - setting -->
             <li class="nav-item">
-                <a class="nav-link {{ Request::is('dashboard/settings') ? 'active' : '' }}""
+                <a class="nav-link {{ Request::is('user') ? 'active' : '' }}""
                    href="
                    charts.html">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -142,7 +134,9 @@
 
             <!-- Main Content -->
             <div id="content">
-                @yield('content_dashboard')
+                <div class="container-fluid mt-4">
+                    @yield('content_dashboard')
+                </div>
             </div>
             <!-- End of Main Content -->
 
