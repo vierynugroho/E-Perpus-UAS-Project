@@ -11,8 +11,7 @@ class PinjamController extends Controller
      */
     public function index()
     {
-        return "hahaha pinjam";
-        // return view('pages.pinjam');
+        return view('pages.pinjam');
     }
 
     /**

@@ -19,9 +19,9 @@ Auth::routes(['verify' => true]);
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
-    Route::resource('/pinjam', PinjamController::class);
-    Route::resource('/history', HistoryController::class);
-    Route::resource('/literasi', LiterasiController::class);
-    Route::resource('/achievment', RankController::class);
-    Route::resource('/settings', UserController::class);
+    Route::resource('/dashboard/pinjam', PinjamController::class);
+    Route::resource('/dashboard/history', HistoryController::class);
+    Route::resource('/dashboard/literasi', LiterasiController::class);
+    Route::resource('/dashboard/achievment', RankController::class);
+    Route::resource('/dashboard/settings', UserController::class);
 });

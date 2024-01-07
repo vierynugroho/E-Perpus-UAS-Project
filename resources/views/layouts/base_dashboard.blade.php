@@ -46,7 +46,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('pinjam*') ? 'active' : '' }}""
                    href="
-                   /pinjam">
+                   /dashboard/pinjam">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Buku Di Pinjam</span></a>
             </li>
@@ -55,7 +55,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('history*') ? 'active' : '' }}""
                    href="
-                   /history">
+                   /dashboard/history">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>History Pinjam</span></a>
             </li>
@@ -72,7 +72,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('literasi') ? 'active' : '' }}""
                    href="
-                   /literasi">
+                   /dashboard/literasi"">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Data Literasi</span></a>
             </li>
@@ -80,7 +80,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('literasi/create') ? 'active' : '' }}""
                    href="
-                   /literasi/create">
+                   /dashboard/literasi/create">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Isi Literasi</span></a>
             </li>
@@ -97,7 +97,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('achievment') ? 'active' : '' }}""
                    href="
-                   /achievment">
+                   /dashboard/achievment">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Achievment</span></a>
             </li>
@@ -106,7 +106,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('user') ? 'active' : '' }}""
                    href="
-                   /settings">
+                   /dashboard/settings">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Settings</span></a>
             </li>
@@ -123,7 +123,6 @@
                 </a>
                 <p class="text-center mb-2"><strong>E-Perpus</strong> reading a book is opening a window to the world !
                 </p>
-
             </div>
         </ul>
         <!-- End of Sidebar -->
