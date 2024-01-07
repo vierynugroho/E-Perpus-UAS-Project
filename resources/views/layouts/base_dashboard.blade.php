@@ -55,7 +55,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('history*') ? 'active' : '' }}""
                    href="
-                   charts.html">
+                   /history">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>History Pinjam</span></a>
             </li>
@@ -72,7 +72,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('literasi') ? 'active' : '' }}""
                    href="
-                   charts.html">
+                   /literasi">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Data Literasi</span></a>
             </li>
@@ -80,7 +80,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('literasi/create') ? 'active' : '' }}""
                    href="
-                   charts.html">
+                   /literasi/create">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Isi Literasi</span></a>
             </li>
@@ -97,7 +97,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('achievment') ? 'active' : '' }}""
                    href="
-                   charts.html">
+                   /achievment">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Achievment</span></a>
             </li>
@@ -106,7 +106,7 @@
             <li class="nav-item">
                 <a class="nav-link {{ Request::is('user') ? 'active' : '' }}""
                    href="
-                   charts.html">
+                   /settings">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Settings</span></a>
             </li>

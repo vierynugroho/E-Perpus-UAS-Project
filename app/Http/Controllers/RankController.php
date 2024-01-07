@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class Literasi extends Controller
+class RankController extends Controller
 {
     /**
      * Display a listing of the resource.

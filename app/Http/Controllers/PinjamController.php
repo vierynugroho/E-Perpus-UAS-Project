@@ -4,14 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DiPinjam extends Controller
+class PinjamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.pinjam');
+        return "hahaha pinjam";
+        // return view('pages.pinjam');
     }
 
     /**
