@@ -43,8 +43,8 @@
             </div>
 
             <!-- Nav Item - Buku Di Pinjam Menu -->
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('pinjam*') ? 'active' : '' }}""
+            <li class="nav-item {{ Request::is('dashboard/pinjam*') ? 'active' : '' }}">
+                <a class="nav-link"
                    href="
                    /dashboard/pinjam">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -52,8 +52,8 @@
             </li>
 
             <!-- Nav Item - History Pinjam Menu -->
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('history*') ? 'active' : '' }}""
+            <li class="nav-item {{ Request::is('dashboard/history*') ? 'active' : '' }}">
+                <a class="nav-link"
                    href="
                    /dashboard/history">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -69,16 +69,19 @@
             </div>
 
             <!-- Nav Item - Achievment -->
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('literasi') ? 'active' : '' }}""
+            <li class="nav-item {{ Request::is('dashboard/literasi') ? 'active' : '' }}">
+                <a class="nav-link"
                    href="
                    /dashboard/literasi"">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="
+                   fas
+                   fa-fw
+                   fa-chart-area"></i>
                     <span>Data Literasi</span></a>
             </li>
             <!-- Nav Item - Achievment -->
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('literasi/create') ? 'active' : '' }}""
+            <li class="nav-item {{ Request::is('dashboard/literasi/create') ? 'active' : '' }}">
+                <a class="nav-link"
                    href="
                    /dashboard/literasi/create">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -94,8 +97,8 @@
             </div>
 
             <!-- Nav Item - Achievment -->
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('achievment') ? 'active' : '' }}""
+            <li class="nav-item {{ Request::is('dashboard/achievment') ? 'active' : '' }}">
+                <a class="nav-link"
                    href="
                    /dashboard/achievment">
                     <i class="fas fa-fw fa-chart-area"></i>
@@ -103,8 +106,8 @@
             </li>
 
             <!-- Nav Item - setting -->
-            <li class="nav-item">
-                <a class="nav-link {{ Request::is('user') ? 'active' : '' }}""
+            <li class="nav-item {{ Request::is('dashboard/settings*') ? 'active' : '' }}">
+                <a class="nav-link"
                    href="
                    /dashboard/settings">
                     <i class="fas fa-fw fa-chart-area"></i>
