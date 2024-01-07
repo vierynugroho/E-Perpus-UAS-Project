@@ -97,4 +97,43 @@
         </div>
     </div>
 </div>
+
+<!-- Content Row -->
+<div class="row">
+
+    <!-- Content Column -->
+    <div class="col-12">
+        <!-- Project Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary">Data Buku</h6>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table display"
+                           id="dataTable">
+                        <thead>
+                            <th>No</th>
+                            <th>Judul Buku</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Status Kembali</th>
+                            <th>Aksi</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Jual Melon</td>
+                                <td>1 Januari 2024</td>
+                                <td>Dipinjam</td>
+                                <td>
+                                    <button class="btn btn-warning">Kembalikan</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 @endsection

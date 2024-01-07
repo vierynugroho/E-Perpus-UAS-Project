@@ -68,7 +68,7 @@
                 Literation
             </div>
 
-            <!-- Nav Item - Achievment -->
+            <!-- Nav Item - Data Literasi -->
             <li class="nav-item {{ Request::is('dashboard/literasi') ? 'active' : '' }}">
                 <a class="nav-link"
                    href="
@@ -79,7 +79,7 @@
                    fa-chart-area"></i>
                     <span>Data Literasi</span></a>
             </li>
-            <!-- Nav Item - Achievment -->
+            <!-- Nav Item - Isi Literasi -->
             <li class="nav-item {{ Request::is('dashboard/literasi/create') ? 'active' : '' }}">
                 <a class="nav-link"
                    href="
@@ -97,12 +97,12 @@
             </div>
 
             <!-- Nav Item - Achievment -->
-            <li class="nav-item {{ Request::is('dashboard/achievment') ? 'active' : '' }}">
+            <li class="nav-item {{ Request::is('dashboard/leaderboard*') ? 'active' : '' }}">
                 <a class="nav-link"
                    href="
-                   /dashboard/achievment">
+                   /dashboard/leaderboard">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Achievment</span></a>
+                    <span>Leaderboard</span></a>
             </li>
 
             <!-- Nav Item - setting -->

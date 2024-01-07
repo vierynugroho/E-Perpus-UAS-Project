@@ -11,7 +11,7 @@ class LiterasiController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.literasi');
     }
 
     /**

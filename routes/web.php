@@ -22,6 +22,6 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard/pinjam', PinjamController::class);
     Route::resource('/dashboard/history', HistoryController::class);
     Route::resource('/dashboard/literasi', LiterasiController::class);
-    Route::resource('/dashboard/achievment', RankController::class);
+    Route::resource('/dashboard/leaderboard', RankController::class);
     Route::resource('/dashboard/settings', UserController::class);
 });
