@@ -31,11 +31,18 @@
         {{-- Datatables --}}
         <link rel="stylesheet"
               href="{{ asset('DataTables/DataTables-1.13.8/css/dataTables.bootstrap5.css') }}">
+
+        {{-- AddOn Script --}}
+        @stack('addOnTopScript')
     </head>
 
     <body>
-        @yield('body')
+        @if(!Request::is('dashboard*')){
+        <x-navbar></x-navbar>
+        }
+        @endif
 
+        @yield('content')
 
         {{-- ! SCRIPT AREA ! --}}
         <!-- Bootstrap JavaScript Libraries -->
@@ -57,12 +64,12 @@
         {{-- DataTable Config --}}
         <script>
             $(document).ready(function() {
-                        $('#dataTable').DataTable();
-                    });
+                $('#dataTable').DataTable();
+            });
         </script>
 
         {{-- AddOn Script --}}
-        @stack('addOnScript')
+        @stack('addOnBottomScript')
     </body>
 
 </html>
