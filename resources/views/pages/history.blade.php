@@ -3,7 +3,7 @@
 @section('content_dashboard')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Literasi</h1>
+    <h1 class="h3 mb-0 text-gray-800">History Pinjam</h1>
     <a href="#"
        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
@@ -18,8 +18,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Total Literasi</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">2 Literasi</div>
+                            Buku Dipinjam</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">2 Buku</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -86,8 +86,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                            Buku Dipinjam</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">10 Buku</div>
+                            Literasi</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">10 Literasi</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -106,7 +106,7 @@
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Literasi</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Data Buku</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -114,20 +114,16 @@
                            id="dataTable">
                         <thead>
                             <th>No</th>
-                            <th>Judul</th>
-                            <th>Halaman</th>
-                            <th>Tanggal Literasi</th>
-                            <th>Aksi</th>
+                            <th>Judul Buku</th>
+                            <th>Tanggal Pinjam</th>
+                            <th>Tanggal Kembali</th>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>Jual Melon</td>
-                                <td>1 - 10</td>
+                                <td>1 Januari 2024</td>
                                 <td>2 Januari 2024</td>
-                                <td>
-                                    <button class="btn btn-warning">Update Delete</button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>

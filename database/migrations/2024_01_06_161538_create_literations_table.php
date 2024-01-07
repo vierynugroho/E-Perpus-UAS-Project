@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('id_user');
             $table->bigInteger('id_buku')->unsigned();
             $table->string('judul');
+            $table->string('halaman_dibaca');
             $table->text('ringkasan');
             $table->timestamps();
 
