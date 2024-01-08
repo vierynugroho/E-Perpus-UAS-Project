@@ -111,17 +111,17 @@
                     <div class="form-group row">
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="number"
+                                <input type="password"
                                        class="form-control"
                                        id="floatingInput"
-                                       placeholder="tahun"
-                                       name="tahun"
-                                       value="{{ old('tahun') }}"
+                                       placeholder="password"
+                                       name="password"
+                                       value="{{ old('password') }}"
                                        required
-                                       autocomplete="tahun"
+                                       autocomplete="password"
                                        autofocus>
-                                <label for="floatingInput">Tahun Terbit</label>
-                                @error('tahun')
+                                <label for="floatingInput">Password</label>
+                                @error('password')
                                 <span class="invalid-feedback"
                                       role="alert">
                                     <strong>{{ $message }}</strong>
@@ -131,17 +131,17 @@
                         </div>
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
-                                <input type="number"
+                                <input type="password"
                                        class="form-control"
                                        id="floatingInput"
-                                       placeholder="stok"
-                                       name="quantity"
-                                       value="{{ old('quantity') }}"
+                                       placeholder="Konfirmasi Password"
+                                       name="password_confirm"
+                                       value="{{ old('password_confirm') }}"
                                        required
-                                       autocomplete="quantity"
+                                       autocomplete="password_confirm"
                                        autofocus>
-                                <label for="floatingInput">stok</label>
-                                @error('quantity')
+                                <label for="floatingInput">Konfirmasi Password</label>
+                                @error('password_confirm')
                                 <span class="invalid-feedback"
                                       role="alert">
                                     <strong>{{ $message }}</strong>
