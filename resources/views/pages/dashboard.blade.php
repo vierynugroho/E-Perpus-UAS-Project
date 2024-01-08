@@ -20,7 +20,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Buku Dipinjam</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">2 Buku</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_pinjam }} Buku</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -37,8 +37,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Favorit</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">3 Buku</div>
+                            Buku</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_buku }} Buku</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -88,7 +88,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Literasi</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">10 Literasi</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_literasi }} Literasi</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>

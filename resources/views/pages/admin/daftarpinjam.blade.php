@@ -64,19 +64,34 @@
                            id="dataTable">
                         <thead>
                             <th>No</th>
-                            <th>Judul Buku</th>
                             <th>Peminjam</th>
+                            <th>Judul Buku</th>
                             <th>Tanggal Pinjam</th>
                             <th>Status Kembali</th>
                             <th>Aksi</th>
                         </thead>
                         <tbody>
+                            @php
+                            $i=1;
+                            @endphp
+                            @foreach ($datas as $data)
                             <tr>
-                                <td>1</td>
-                                <td>Jual Melon</td>
-                                <td>Dajjal</td>
-                                <td>1 Januari 2024</td>
-                                <td>Di Pinjam</td>
+                                <td>{{$i++}}</td>
+                                <td>{{ $data->id_user }}</td>
+                                <td>{{ $data->id_buku }}</td>
+                                <td>{{ $data->created_at }}</td>
+                                <td>
+                                    @if ($data->updated_at === null)
+                                    <div class="badge bg-danger px-2 py-1">
+                                        Dipinjam
+                                    </div>
+                                    @else
+                                    <div class="badge bg-success px-2 py-1">
+                                        Dikembalikan
+                                    </div>
+
+                                    @endif
+                                </td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-outline-primary dropdown-toggle"
@@ -97,6 +112,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

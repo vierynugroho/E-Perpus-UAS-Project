@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Literation;
+use App\Models\Pinjam;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,12 +28,25 @@ class HomeController extends Controller
     {
         $datas = Book::all();
         return view('home', [
-            'datas' => $datas
+            'datas' => $datas,
+
         ]);
     }
 
     public function dashboard()
     {
-        return view('pages.dashboard');
+        // ada 2
+        // count admin (keseluruhan)
+        // count user (data user login)
+
+        $count_buku = Book::all()->count();
+        $count_pinjam = Pinjam::all()->count();
+        $count_literasi = Literation::all()->count();
+
+        return view('pages.dashboard', [
+            'count_pinjam' => $count_pinjam,
+            'count_literasi' => $count_literasi,
+            'count_buku' => $count_buku,
+        ]);
     }
 }

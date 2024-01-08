@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -11,7 +12,10 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.daftarKategori');
+        $datas = Category::all();
+        return view('pages.admin.daftarKategori', [
+            'datas' => $datas
+        ]);
     }
 
     /**
@@ -43,7 +47,11 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        return view('pages.admin.kategori.edit');
+        $data = Category::find($id);
+
+        return view('pages.admin.kategori.edit', [
+            'data' => $data
+        ]);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pinjam;
 use Illuminate\Http\Request;
 
 class DaftarPinjamController extends Controller
@@ -11,7 +12,10 @@ class DaftarPinjamController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.daftarpinjam');
+        $datas = Pinjam::all();
+        return view('pages.admin.daftarpinjam', [
+            'datas' => $datas
+        ]);
     }
 
     /**
@@ -43,7 +47,10 @@ class DaftarPinjamController extends Controller
      */
     public function edit(string $id)
     {
-        return view('pages.admin.daftarpinjam.edit');
+        $data = Pinjam::find($id);
+        return view('pages.admin.daftarpinjam.edit', [
+            'data' => $data
+        ]);
     }
 
     /**

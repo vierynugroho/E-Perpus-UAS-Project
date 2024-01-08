@@ -65,14 +65,16 @@
                         <thead>
                             <th>No</th>
                             <th>Kategori</th>
-                            <th>Buku Per Kategori</th>
                             <th>Aksi</th>
                         </thead>
                         <tbody>
+                            @php
+                            $i=1;
+                            @endphp
+                            @foreach ($datas as $data)
                             <tr>
-                                <td>1</td>
-                                <td>Jual Melon</td>
-                                <td>2 Buku</td>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $data->name }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-outline-primary dropdown-toggle"
@@ -93,6 +95,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
