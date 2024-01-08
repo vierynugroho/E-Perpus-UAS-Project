@@ -22,17 +22,17 @@
                     @csrf
                     <div class="row">
                         <div class="col-12">
-                            <div class="form-floating mb-3">
+                            <div class="mb-3">
+                                <label for="nama">Nama Lengkap</label>
                                 <input type="text"
                                        class="form-control"
-                                       id="floatingInput"
-                                       placeholder="Nama Lengkap"
+                                       id="nama"
+                                       placeholder="{{ $data->name }}"
                                        name="nama"
                                        value="{{ old('nama') }}"
                                        required
                                        autocomplete="nama"
                                        autofocus>
-                                <label for="floatingInput">Nama Lengkap</label>
                                 @error('judul')
                                 <span class="invalid-feedback"
                                       role="alert">
@@ -44,17 +44,16 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <div class="form-floating mb-3">
+                            <div class="mb-3">
+                                <label for="email">Email</label>
                                 <input type="email"
                                        class="form-control"
-                                       id="floatingInput"
-                                       placeholder="Email"
+                                       placeholder="{{ $data->email }}"
                                        name="email"
                                        value="{{ old('email') }}"
                                        required
                                        autocomplete="email"
                                        autofocus>
-                                <label for="floatingInput">Email</label>
                                 @error('email')
                                 <span class="invalid-feedback"
                                       role="alert">
@@ -66,17 +65,17 @@
                     </div>
                     <div class="row">
                         <div class="col-md-8">
-                            <div class="form-floating mb-3">
+                            <div class=" mb-3">
+                                <label for="nik">NIK</label>
                                 <input type="text"
                                        class="form-control"
-                                       id="floatingInput"
-                                       placeholder="NIK"
+                                       id="nik"
+                                       placeholder="{{ $data->nik }}"
                                        name="nik"
                                        value="{{ old('nik') }}"
                                        required
                                        autocomplete="nik"
                                        autofocus>
-                                <label for="floatingInput">NIK</label>
                                 @error('nik')
                                 <span class="invalid-feedback"
                                       role="alert">
@@ -86,17 +85,22 @@
                             </div>
                         </div>
                         <div class="col-4">
-                            <div class="form-floating">
+                            <div class="mb-3">
+                                <label for="role">Role</label>
                                 <select class="form-select"
-                                        id="floatingSelect"
+                                        id="role"
                                         aria-label="role"
                                         name="is_admin">
+                                    @if($data->is_admin)
                                     <option selected
-                                            hidden>- Role -</option>
+                                            hidden>Admin</option>
+                                    @else
+                                    <option selected
+                                            hidden>User</option>
+                                    @endif
                                     <option value="0">User</option>
                                     <option value="1">Admin</option>
                                 </select>
-                                <label for="floatingSelect">Role</label>
 
                                 @error('is_admin')
                                 <span class="invalid-feedback"
@@ -109,6 +113,12 @@
                     </div>
 
                     <div class="form-group row">
+                        <div class="row">
+                            <div class="col-12">
+                                <small class="italic"
+                                       disabled>* Isi form jika ingin mengubah password</small>
+                            </div>
+                        </div>
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="password"
