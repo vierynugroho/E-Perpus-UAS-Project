@@ -60,6 +60,14 @@
                     <span>History Pinjam</span></a>
             </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Administrator
+            </div>
+
             <!-- Nav Item - Book Menu -->
             {{-- !ADMIN --}}
             <li class="nav-item {{ Request::is('dashboard/perpustakaan*') ? 'active' : '' }}">
@@ -68,6 +76,22 @@
                    /dashboard/perpustakaan">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Perpustakaan</span></a>
+            </li>
+
+            <li class="nav-item {{ Request::is('dashboard/kategori*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="
+                   /dashboard/kategori">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Kategori</span></a>
+            </li>
+
+            <li class="nav-item {{ Request::is('dashboard/daftarpinjam*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="
+                   /dashboard/daftarpinjam">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Daftar Pinjam</span></a>
             </li>
 
             <!-- Divider -->

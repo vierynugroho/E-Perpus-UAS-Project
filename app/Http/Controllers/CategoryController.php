@@ -4,14 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BukuController extends Controller
+class CategoryController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.admin.perpustakaan');
+        return view('pages.admin.kategori');
     }
 
     /**
@@ -19,7 +19,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.perpustakaan.inputBuku');
+        //
     }
 
     /**
