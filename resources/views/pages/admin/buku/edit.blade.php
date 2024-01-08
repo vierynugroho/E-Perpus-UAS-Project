@@ -16,7 +16,7 @@
 
             <div class="card-body">
                 <form method="POST"
-                      action="{{ route('perpustakaan.update', $buku->id) }}"
+                      action="{{ route('daftarbuku.update', $buku->id) }}"
                       enctype="multipart/form-data">
                     @method('put')
                     @csrf

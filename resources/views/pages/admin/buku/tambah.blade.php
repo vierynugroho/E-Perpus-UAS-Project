@@ -16,7 +16,7 @@
 
             <div class="card-body">
                 <form method="POST"
-                      action="{{ route('perpustakaan.store') }}"
+                      action="{{ route('daftarbuku.store') }}"
                       enctype="multipart/form-data">
                     @csrf
                     <div class="row">
