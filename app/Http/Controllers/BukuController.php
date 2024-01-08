@@ -24,7 +24,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.perpustakaan.inputBuku');
+        return view('pages.admin.perpustakaan.tambah');
     }
 
     /**
@@ -48,7 +48,11 @@ class BukuController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $buku = Book::findOrFail($id);
+
+        return view('pages.admin.perpustakaan.edit', [
+            'buku' => $buku,
+        ]);
     }
 
     /**

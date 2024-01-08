@@ -151,8 +151,30 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12 mx-3 mb-3 mx-auto d-flex justify-content-evenly">
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <div class="form-floating mb-3">
+                                <input type="file"
+                                       class="form-control"
+                                       id="floatingInput"
+                                       placeholder="cover"
+                                       name="cover"
+                                       value="{{ old('cover') }}"
+                                       required
+                                       autocomplete="cover"
+                                       autofocus>
+                                <label for="floatingInput">Cover Buku</label>
+                                @error('cover')
+                                <span class="invalid-feedback"
+                                      role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12 mx-3 mb-3 mx-auto d-flex justify-content-between ">
                             <button type="submit"
                                     class="btn btn-primary col-7">
                                 Simpan
