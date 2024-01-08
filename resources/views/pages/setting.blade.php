@@ -86,27 +86,35 @@
                         <div class="col-4">
                             <div class="mb-3">
                                 <label for="role">Role</label>
+                                @if(!$data->is_admin)
                                 <select class="form-select"
                                         id="role"
                                         aria-label="role"
-                                        name="is_admin">
-                                    @if($data->is_admin)
-                                    <option selected
-                                            hidden>Admin</option>
+                                        name="is_admin"
+                                        disabled>
                                     @else
-                                    <option selected
-                                            hidden>User</option>
-                                    @endif
-                                    <option value="0">User</option>
-                                    <option value="1">Admin</option>
-                                </select>
+                                    <select class="form-select"
+                                            id="role"
+                                            aria-label="role"
+                                            name="is_admin">
+                                        @endif
+                                        @if($data->is_admin)
+                                        <option selected
+                                                hidden>Admin</option>
+                                        @else
+                                        <option selected
+                                                hidden>User</option>
+                                        @endif
+                                        <option value="0">User</option>
+                                        <option value="1">Admin</option>
+                                    </select>
 
-                                @error('is_admin')
-                                <span class="invalid-feedback"
-                                      role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                                    @error('is_admin')
+                                    <span class="invalid-feedback"
+                                          role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
                             </div>
                         </div>
                     </div>
