@@ -19,7 +19,7 @@ class LiterasiController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.literasi.tambah');
     }
 
     /**

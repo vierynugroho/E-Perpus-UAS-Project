@@ -141,13 +141,13 @@
                             <div class="form-floating mb-3">
                                 <input type="password"
                                        class="form-control"
-                                       id="floatingInput"
+                                       id="floatingInputConfirm"
                                        placeholder="Konfirmasi Password"
                                        name="password_confirm"
                                        value="{{ old('password_confirm') }}"
                                        autocomplete="password_confirm"
                                        autofocus>
-                                <label for="floatingInput">Konfirmasi Password</label>
+                                <label for="floatingInputConfirm">Konfirmasi Password</label>
                                 @error('password_confirm')
                                 <span class="invalid-feedback"
                                       role="alert">
@@ -172,6 +172,7 @@
                 </form>
             </div>
         </div>
+
     </div>
 </div>
 @endsection

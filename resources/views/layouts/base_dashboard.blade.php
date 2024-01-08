@@ -4,6 +4,9 @@
 <!-- Custom styles for this template-->
 <link href="{{ asset('css/sb-admin-2.min.css') }}"
       rel="stylesheet">
+
+{{-- CKEditor --}}
+<script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
 @endpush
 
 @section('content')
