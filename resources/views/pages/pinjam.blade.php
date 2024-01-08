@@ -112,19 +112,17 @@
                         <thead>
                             <th>No</th>
                             <th>Judul Buku</th>
+                            <th>Penulis</th>
+                            <th>Penerbit</th>
                             <th>Tanggal Pinjam</th>
-                            <th>Status Kembali</th>
-                            <th>Aksi</th>
                         </thead>
                         <tbody>
                             <tr>
                                 <td>1</td>
                                 <td>Jual Melon</td>
+                                <td>dajjal</td>
+                                <td>Canda Pedia</td>
                                 <td>1 Januari 2024</td>
-                                <td>Di Pinjam</td>
-                                <td>
-                                    <button class="btn btn-sm btn-primary">Kembalikan</button>
-                                </td>
                             </tr>
                         </tbody>
                     </table>
