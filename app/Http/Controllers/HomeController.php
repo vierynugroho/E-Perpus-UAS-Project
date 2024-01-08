@@ -39,7 +39,9 @@ class HomeController extends Controller
         $user = auth()->user();
 
         // user information
-        $loggedInLiterasiRank = Literation::select('id_user', DB::raw('count(*) as jumlah_literasi'))
+        $count_pinjam_user = Pinjam::where('id_user', $user->nik)->count();
+        $count_literasi_user = Literation::where('id_user', $user->nik)->count();
+        $rank_user = Literation::select('id_user', DB::raw('count(*) as jumlah_literasi'))
             ->groupBy('id_user')
             ->orderByDesc('jumlah_literasi')
             ->pluck('id_user')
@@ -55,12 +57,16 @@ class HomeController extends Controller
             ->get();
 
         return view('pages.dashboard', [
+            // admin information
             'count_pinjam' => $count_pinjam,
             'count_literasi' => $count_literasi,
             'count_buku' => $count_buku,
-            'loggedInLiterasiRank' => $loggedInLiterasiRank + 1,
-
             'leaderboards' => $leaderboards,
+
+            // user information
+            'rank_user' => $rank_user + 1,
+            'count_literasi_user' => $count_literasi_user,
+            'count_pinjam_user' => $count_pinjam_user
         ]);
     }
 }

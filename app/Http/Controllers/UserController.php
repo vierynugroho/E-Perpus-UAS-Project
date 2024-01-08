@@ -61,6 +61,7 @@ class UserController extends Controller
         $user->nik = $request['nik'];
         $user->name = $request['name'];
         $user->email = $request['email'];
+        $user->is_admin = $request['is_admin'];
 
         if ($request->password) {
             $user->password = bcrypt($request['password']);
