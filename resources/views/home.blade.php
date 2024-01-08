@@ -24,10 +24,10 @@
                     </div>
                 </div>
                 <div class="row d-flex flex-nowrap overflow-auto">
+                    @foreach ($datas as $data)
                     <div class="col-6 col-lg-4">
                         <div class="book shadow rounded py-3 m-3 d-flex">
                             <div class="row w-100">
-
                                 <div class="col-6">
                                     <div class="book-cover">
                                         <img src="https://berita.99.co/wp-content/uploads/2022/08/Contoh-Cover-Buku-Noverl-Simple-yang-Populer.jpg"
@@ -39,13 +39,13 @@
                                 <div class="col-6">
                                     <div class="book-detail">
                                         <h6>Judul Buku</h6>
-                                        <p>nananna</p>
+                                        <p>{{ $data->judul }}</p>
                                         <hr>
                                         <h6>Penulis</h6>
-                                        <p>lorem</p>
+                                        <p>{{ $data->penulis }}</p>
                                         <hr>
                                         <h6>Stock</h6>
-                                        <p>6</p>
+                                        <p>{{ $data->quantity }}</p>
                                     </div>
                                     <div class="book-action">
                                         <button class="btn btn-info d-block w-100">Pinjam</button>
@@ -55,6 +55,7 @@
                             </div>
                         </div>
                     </div>
+                    @endforeach
                 </div>
             </div>
 
