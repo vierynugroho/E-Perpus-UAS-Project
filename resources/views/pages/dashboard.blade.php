@@ -58,7 +58,9 @@
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Top 1</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Top
+                                    {{ $loggedInLiterasiRank }}
+                                </div>
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">
@@ -117,41 +119,34 @@
                             <div class="col-2">
                                 <p class="text-center">Rank</p>
                             </div>
-                            <div class="col-10">
+                            <div class="col-8">
                                 <p class="text-center">Nama</p>
                             </div>
+                            <div class="col-2">
+                                <p class="text-center">Total Literasi</p>
+                            </div>
                         </div>
                     </li>
+                    @php
+                    $i=1;
+                    @endphp
+                    @forelse ($leaderboards as $leaderboard)
                     <li class="list-item list-unstyled">
                         <div class="row">
                             <div class="col-2">
-                                <p class="text-center">1 👑</p>
+                                <p class="text-center">{{ $i++ }}</p>
                             </div>
-                            <div class="col-10">
-                                <p class="text-center">King</p>
+                            <div class="col-8">
+                                <p class="text-center">{{ $leaderboard->id_user }}</p>
                             </div>
-                        </div>
-                    </li>
-                    <li class="list-item list-unstyled">
-                        <div class="row">
                             <div class="col-2">
-                                <p class="text-center">2 👑</p>
-                            </div>
-                            <div class="col-10">
-                                <p class="text-center">Sepuh</p>
+                                <p class="text-center">{{ $leaderboard->jumlah_literasi }}</p>
                             </div>
                         </div>
                     </li>
-                    <li class="list-item list-unstyled">
-                        <div class="row">
-                            <div class="col-2">
-                                <p class="text-center">3 👑</p>
-                            </div>
-                            <div class="col-10">
-                                <p class="text-center">Pemula</p>
-                            </div>
-                        </div>
-                    </li>
+                    @empty
+
+                    @endforelse
                     <li class="list-item text-center list-unstyled">
                         <a href="/dashboard/leaderboard">
                             <small>Lihat Selengkapnya</small>

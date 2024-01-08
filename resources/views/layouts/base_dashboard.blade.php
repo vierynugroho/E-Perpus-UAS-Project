@@ -5,6 +5,11 @@
 <link href="{{ asset('css/sb-admin-2.min.css') }}"
       rel="stylesheet">
 
+{{-- Font Awesome --}}
+<link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}"
+      rel="stylesheet"
+      type="text/css">
+
 {{-- CKEditor --}}
 <script src="https://cdn.ckeditor.com/ckeditor5/40.2.0/classic/ckeditor.js"></script>
 @endpush
