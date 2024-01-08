@@ -24,9 +24,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard/literasi', LiterasiController::class);
     Route::resource('/dashboard/leaderboard', RankController::class);
     Route::resource('/dashboard/settings', UserController::class);
-    Route::resource('/dashboard/perpustakaan', BukuController::class);
 
     // admin
+    Route::resource('/dashboard/daftarbuku', BukuController::class);
     Route::resource('/dashboard/daftarpinjam', DaftarPinjamController::class);
     Route::resource('/dashboard/kategori', CategoryController::class);
     Route::resource('/dashboard/daftarliterasi', DaftarLiterasiController::class);

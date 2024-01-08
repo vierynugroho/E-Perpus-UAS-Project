@@ -106,7 +106,7 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Daftar Buku</h6>
-                <a href="/dashboard/perpustakaan/create"
+                <a href="/dashboard/daftarbuku/create"
                    class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
                     Tambah Buku</a>
             </div>
@@ -152,9 +152,9 @@
                                         {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/perpustakaan/{{ $data->id }}/edit">Edit</a></li>
+                                                   href="/dashboard/daftarbuku/{{ $data->id }}/edit">Edit</a></li>
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/perpustakaan/{{ $data->id }}">Hapus</a></li>
+                                                   href="/dashboard/daftarbuku/{{ $data->id }}">Hapus</a></li>
                                         </ul>
                                     </div>
                                 </td>
