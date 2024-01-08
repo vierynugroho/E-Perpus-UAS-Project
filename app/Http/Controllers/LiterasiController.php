@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Literation;
 use Illuminate\Http\Request;
 
 class LiterasiController extends Controller
@@ -11,7 +12,11 @@ class LiterasiController extends Controller
      */
     public function index()
     {
-        return view('pages.literasi');
+        $literasis = Literation::where('id_user', '=', Auth()->user()->nik)->get();
+
+        return view('pages.literasi', [
+            'datas' => $literasis
+        ]);
     }
 
     /**
@@ -35,7 +40,11 @@ class LiterasiController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+        $literasi = Literation::findOrFail($id);
+        return view('pages.literasi.detail', [
+            'literasi' => $literasi
+        ]);
     }
 
     /**
@@ -43,7 +52,7 @@ class LiterasiController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('pages.literasi.edit');
     }
 
     /**

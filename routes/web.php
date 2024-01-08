@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{BukuController, CategoryController, DaftarPinjamController, HistoryController, HomeController, LiterasiController, PinjamController, RankController, UserController};
+use App\Http\Controllers\{BukuController, CategoryController, DaftarLiterasiController, DaftarPinjamController, HistoryController, HomeController, LiterasiController, PinjamController, RankController, UserController};
 use Illuminate\Support\Facades\{Route, Auth};
 
 /*
@@ -29,4 +29,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     // admin
     Route::resource('/dashboard/daftarpinjam', DaftarPinjamController::class);
     Route::resource('/dashboard/kategori', CategoryController::class);
+    Route::resource('/dashboard/daftarliterasi', DaftarLiterasiController::class);
 });

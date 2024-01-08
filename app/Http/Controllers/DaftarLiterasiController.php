@@ -2,19 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
+use App\Models\Literation;
 use Illuminate\Http\Request;
 
-class BukuController extends Controller
+class DaftarLiterasiController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $datas = Book::all();
-
-        return view('pages.admin.daftarBuku', [
+        $datas =   Literation::all();
+        return view('pages.admin.daftarLiterasi', [
             'datas' => $datas
         ]);
     }
@@ -24,7 +23,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.buku.tambah');
+        //
     }
 
     /**
@@ -48,11 +47,7 @@ class BukuController extends Controller
      */
     public function edit(string $id)
     {
-        $buku = Book::findOrFail($id);
-
-        return view('pages.admin.buku.edit', [
-            'buku' => $buku,
-        ]);
+        //
     }
 
     /**

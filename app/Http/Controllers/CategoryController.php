@@ -11,7 +11,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.kategori');
+        return view('pages.admin.daftarKategori');
     }
 
     /**
@@ -19,7 +19,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.admin.kategori.tambah');
     }
 
     /**
@@ -43,7 +43,7 @@ class CategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('pages.admin.kategori.edit');
     }
 
     /**

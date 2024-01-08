@@ -52,8 +52,11 @@
     <div class="col-12">
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
+            <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Data Kategori</h6>
+                <a href="/dashboard/kategori/create"
+                   class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
+                    Tambah Kategori</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -83,9 +86,9 @@
                                         {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/perpustakaan/1/edit">Edit</a></li>
+                                                   href="/dashboard/kategori/1/edit">Edit</a></li>
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/perpustakaan/1">Hapus</a></li>
+                                                   href="/dashboard/kategori/1">Hapus</a></li>
                                         </ul>
                                     </div>
                                 </td>

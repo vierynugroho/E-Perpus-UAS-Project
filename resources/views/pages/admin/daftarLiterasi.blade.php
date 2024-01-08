@@ -3,7 +3,7 @@
 @section('content_dashboard')
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
-    <h1 class="h3 mb-0 text-gray-800">Literasi</h1>
+    <h1 class="h3 mb-0 text-gray-800">Daftar Literasi</h1>
     <a href="#"
        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
            class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
@@ -47,17 +47,17 @@
         </div>
     </div>
 
-    <!-- Rank Card -->
+    <!-- Literasi Count Card -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-info shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Rank
+                        <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Anggota Literasi
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Top 1</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">2 User</div>
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">
@@ -115,11 +115,12 @@
                 <div class="table-responsive">
                     <table class="table display"
                            id="dataTable">
+                        <p class="text-danger fw-bold">ini belum fix datanya - CRUD AJA DULU</p>
                         <thead>
                             <th>No</th>
-                            <th>Judul</th>
-                            <th>Halaman</th>
-                            <th>Tanggal Literasi</th>
+                            <th>Nama</th>
+                            <th>Judul Literasi</th>
+                            <th>Total Literasi</th>
                             <th>Aksi</th>
                         </thead>
                         <tbody>
@@ -147,14 +148,11 @@
                                             <li><a class="dropdown-item"
                                                    href="/dashboard/literasi/{{ $data->id }}">Detail</a></li>
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/literasi/{{ $data->id }}/edit">Edit</a></li>
-                                            <li><a class="dropdown-item"
                                                    href="/dashboard/literasi/{{ $data->id }}">Hapus</a></li>
                                         </ul>
                                     </div>
                                 </td>
                                 @endforeach
-                            </tr>
                         </tbody>
                     </table>
                 </div>

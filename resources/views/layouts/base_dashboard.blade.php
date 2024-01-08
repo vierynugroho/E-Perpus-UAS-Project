@@ -68,6 +68,26 @@
 
             <!-- Heading -->
             <div class="sidebar-heading">
+                Literation
+            </div>
+
+            <!-- Nav Item - Data Literasi -->
+            <li class="nav-item {{ Request::is('dashboard/literasi*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="
+                                           /dashboard/literasi"">
+                                            <i class="
+                   fas
+                   fa-fw
+                   fa-chart-area"></i>
+                    <span>Literasi</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
                 Administrator
             </div>
 
@@ -78,7 +98,7 @@
                    href="
                    /dashboard/perpustakaan">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Perpustakaan</span></a>
+                    <span>Daftar Buku</span></a>
             </li>
 
             <li class="nav-item {{ Request::is('dashboard/kategori*') ? 'active' : '' }}">
@@ -86,7 +106,7 @@
                    href="
                    /dashboard/kategori">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Kategori</span></a>
+                    <span>Daftar Kategori</span></a>
             </li>
 
             <li class="nav-item {{ Request::is('dashboard/daftarpinjam*') ? 'active' : '' }}">
@@ -97,33 +117,14 @@
                     <span>Daftar Pinjam</span></a>
             </li>
 
-            <!-- Divider -->
-            <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Literation
-            </div>
-
-            <!-- Nav Item - Data Literasi -->
-            <li class="nav-item {{ Request::is('dashboard/literasi') ? 'active' : '' }}">
+            <li class="nav-item {{ Request::is('dashboard/daftarliterasi*') ? 'active' : '' }}">
                 <a class="nav-link"
                    href="
-                   /dashboard/literasi"">
-                    <i class="
-                   fas
-                   fa-fw
-                   fa-chart-area"></i>
-                    <span>Data Literasi</span></a>
-            </li>
-            <!-- Nav Item - Isi Literasi -->
-            <li class="nav-item {{ Request::is('dashboard/literasi/create') ? 'active' : '' }}">
-                <a class="nav-link"
-                   href="
-                   /dashboard/literasi/create">
+                   /dashboard/daftarliterasi">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Isi Literasi</span></a>
+                    <span>Daftar Literasi</span></a>
             </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider">
