@@ -89,7 +89,8 @@
                             <div class="form-floating">
                                 <select class="form-select"
                                         id="floatingSelect"
-                                        aria-label="Kategori">
+                                        aria-label="Kategori"
+                                        name="kategori">
                                     <option selected
                                             hidden>- Kategori Buku -</option>
                                     <option value="1">Matematika</option>

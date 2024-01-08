@@ -145,7 +145,7 @@
                    href="
                    /dashboard/settings">
                     <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Settings</span></a>
+                    <span>Pengaturan</span></a>
             </li>
 
             <!-- Divider -->
@@ -158,7 +158,7 @@
                          src="{{ asset('images/undraw_rocket.svg') }}"
                          alt="rocket">
                 </a>
-                <p class="text-center mb-2"><strong>E-Perpus</strong> reading a book is opening a window to the world !
+                <p class="text-center mb-2"><strong>E-Perpus</strong> Unisba Balitar
                 </p>
             </div>
         </ul>
