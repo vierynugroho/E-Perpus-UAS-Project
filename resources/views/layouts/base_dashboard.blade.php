@@ -93,10 +93,10 @@
 
             <!-- Nav Item - Book Menu -->
             {{-- !ADMIN --}}
-            <li class="nav-item {{ Request::is('dashboard/perpustakaan*') ? 'active' : '' }}">
+            <li class="nav-item {{ Request::is('dashboard/daftarbuku*') ? 'active' : '' }}">
                 <a class="nav-link"
                    href="
-                   /dashboard/perpustakaan">
+                   /dashboard/daftarbuku">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Daftar Buku</span></a>
             </li>
