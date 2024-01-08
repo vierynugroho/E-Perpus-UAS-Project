@@ -126,7 +126,23 @@
                                 <td>1 - 10</td>
                                 <td>2 Januari 2024</td>
                                 <td>
-                                    <button class="btn btn-warning">Update Delete</button>
+                                    <div class="dropdown">
+                                        <a class="btn btn-outline-primary dropdown-toggle"
+                                           href="#"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            Aksi
+                                        </a>
+
+                                        {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"
+                                                   href="/dashboard/perpustakaan/1/edit">Edit</a></li>
+                                            <li><a class="dropdown-item"
+                                                   href="/dashboard/perpustakaan/1">Hapus</a></li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>

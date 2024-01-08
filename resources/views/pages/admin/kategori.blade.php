@@ -4,9 +4,6 @@
 <!-- Page Heading -->
 <div class="d-sm-flex align-items-center justify-content-between mb-4">
     <h1 class="h3 mb-0 text-gray-800">Kategori</h1>
-    <a href="#"
-       class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-           class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
 </div>
 
 <!-- Content Row -->
@@ -74,7 +71,23 @@
                                 <td>Jual Melon</td>
                                 <td>2 Buku</td>
                                 <td>
-                                    <button class="btn btn-warning">Kembalikan</button>
+                                    <div class="dropdown">
+                                        <a class="btn btn-outline-primary dropdown-toggle"
+                                           href="#"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            Aksi
+                                        </a>
+
+                                        {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"
+                                                   href="/dashboard/perpustakaan/1/edit">Edit</a></li>
+                                            <li><a class="dropdown-item"
+                                                   href="/dashboard/perpustakaan/1">Hapus</a></li>
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                         </tbody>
