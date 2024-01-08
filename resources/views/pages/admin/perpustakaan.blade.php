@@ -120,19 +120,25 @@
                                 <th>Judul</th>
                                 <th>Kategori</th>
                                 <th>Penulis</th>
+                                <th>Penerbit</th>
                                 <th>Tahun</th>
                                 <th>Stok</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
+                            @php
+                            $i = 1;
+                            @endphp
+                            @foreach ($datas as $data)
                             <tr>
-                                <td>1</th>
-                                <td>tips sukses caleg</td>
-                                <td>politik</td>
-                                <td>tikus</td>
-                                <td>2024</td>
-                                <td>10</td>
+                                <td>{{ $i++ }}</th>
+                                <td>{{ $data->judul }}</td>
+                                <td>{{ $data->id_kategori }}</td>
+                                <td>{{ $data->penulis }}</td>
+                                <td>{{ $data->penerbit }}</td>
+                                <td>{{ $data->tahun }}</td>
+                                <td>{{ $data->quantity }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-outline-primary dropdown-toggle"
@@ -153,6 +159,7 @@
                                     </div>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BukuController extends Controller
@@ -11,7 +12,11 @@ class BukuController extends Controller
      */
     public function index()
     {
-        return view('pages.admin.perpustakaan');
+        $datas = Book::all();
+
+        return view('pages.admin.perpustakaan', [
+            'datas' => $datas
+        ]);
     }
 
     /**
