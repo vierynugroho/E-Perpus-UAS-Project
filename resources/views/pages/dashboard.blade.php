@@ -115,30 +115,40 @@
                     <li class="list-item list-unstyled">
                         <div class="row">
                             <div class="col-2">
-                                <p>1 👑</p>
+                                <p class="text-center">Rank</p>
                             </div>
                             <div class="col-10">
-                                <p>King</p>
+                                <p class="text-center">Nama</p>
                             </div>
                         </div>
                     </li>
                     <li class="list-item list-unstyled">
                         <div class="row">
                             <div class="col-2">
-                                <p>2</p>
+                                <p class="text-center">1 👑</p>
                             </div>
                             <div class="col-10">
-                                <p>Sepuh</p>
+                                <p class="text-center">King</p>
                             </div>
                         </div>
                     </li>
                     <li class="list-item list-unstyled">
                         <div class="row">
                             <div class="col-2">
-                                <p>3</p>
+                                <p class="text-center">2 👑</p>
                             </div>
                             <div class="col-10">
-                                <p>Pemula</p>
+                                <p class="text-center">Sepuh</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="list-item list-unstyled">
+                        <div class="row">
+                            <div class="col-2">
+                                <p class="text-center">3 👑</p>
+                            </div>
+                            <div class="col-10">
+                                <p class="text-center">Pemula</p>
                             </div>
                         </div>
                     </li>
