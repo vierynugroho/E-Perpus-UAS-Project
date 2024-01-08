@@ -56,7 +56,19 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+
+        $user = User::find($id);
+        $user->nik = $request['nik'];
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+
+        if ($request->password) {
+            $user->password = bcrypt($request['password']);
+        }
+
+        $user->save();
+
+        return redirect('dashboard/settings')->with('success', 'Data Berhasil Diubah!');
     }
 
     /**

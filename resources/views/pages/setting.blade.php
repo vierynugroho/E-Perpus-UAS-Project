@@ -13,12 +13,11 @@
     <div class="col-10 mx-auto">
         <div class="card shadow">
             <div class="card-header">{{ __('Pengaturan Akun') }}</div>
-
             <div class="card-body">
-                <form method="POST"
-                      action="'/dashboard/settings/1"
-                      method="PUT"
+                <form action="/dashboard/settings/{{ auth()->user()->nik }}"
+                      method="post"
                       enctype="multipart/form-data">
+                    @method('put')
                     @csrf
                     <div class="row">
                         <div class="col-12">
@@ -27,9 +26,9 @@
                                 <input type="text"
                                        class="form-control"
                                        id="nama"
-                                       placeholder="{{ $data->name }}"
-                                       name="nama"
-                                       value="{{ old('nama') }}"
+                                       placeholder="Nama Lengkap"
+                                       name="name"
+                                       value="{{ $data->name }}"
                                        required
                                        autocomplete="nama"
                                        autofocus>
@@ -48,9 +47,9 @@
                                 <label for="email">Email</label>
                                 <input type="email"
                                        class="form-control"
-                                       placeholder="{{ $data->email }}"
+                                       placeholder="Email"
                                        name="email"
-                                       value="{{ old('email') }}"
+                                       value="{{ $data->email }}"
                                        required
                                        autocomplete="email"
                                        autofocus>
@@ -70,9 +69,9 @@
                                 <input type="text"
                                        class="form-control"
                                        id="nik"
-                                       placeholder="{{ $data->nik }}"
+                                       placeholder="NIK"
                                        name="nik"
-                                       value="{{ old('nik') }}"
+                                       value="{{ $data->nik }}"
                                        required
                                        autocomplete="nik"
                                        autofocus>
@@ -127,7 +126,6 @@
                                        placeholder="password"
                                        name="password"
                                        value="{{ old('password') }}"
-                                       required
                                        autocomplete="password"
                                        autofocus>
                                 <label for="floatingInput">Password</label>
@@ -147,7 +145,6 @@
                                        placeholder="Konfirmasi Password"
                                        name="password_confirm"
                                        value="{{ old('password_confirm') }}"
-                                       required
                                        autocomplete="password_confirm"
                                        autofocus>
                                 <label for="floatingInput">Konfirmasi Password</label>
