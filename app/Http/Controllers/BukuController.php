@@ -11,7 +11,7 @@ class BukuController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.perpustakaan');
     }
 
     /**
@@ -19,7 +19,7 @@ class BukuController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.perpustakaan.inputBuku');
     }
 
     /**

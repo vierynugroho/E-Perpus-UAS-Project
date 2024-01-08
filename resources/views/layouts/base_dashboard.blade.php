@@ -60,6 +60,16 @@
                     <span>History Pinjam</span></a>
             </li>
 
+            <!-- Nav Item - Book Menu -->
+            {{-- !ADMIN --}}
+            <li class="nav-item {{ Request::is('dashboard/perpustakaan*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="
+                   /dashboard/perpustakaan">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Perpustakaan</span></a>
+            </li>
+
             <!-- Divider -->
             <hr class="sidebar-divider">
 

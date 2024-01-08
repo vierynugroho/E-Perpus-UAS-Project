@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{HistoryController, HomeController, LiterasiController, PinjamController, RankController, UserController};
+use App\Http\Controllers\{BukuController, HistoryController, HomeController, LiterasiController, PinjamController, RankController, UserController};
 use Illuminate\Support\Facades\{Route, Auth};
 
 /*
@@ -24,4 +24,5 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard/literasi', LiterasiController::class);
     Route::resource('/dashboard/leaderboard', RankController::class);
     Route::resource('/dashboard/settings', UserController::class);
+    Route::resource('/dashboard/perpustakaan', BukuController::class);
 });
