@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('id_user');
             $table->bigInteger('id_buku')->unsigned();
+            $table->enum('status_pinjam', ['PENDING', 'DIPINJAM', 'DIKEMBALIKAN']);
             $table->timestamps();
-
             $table->foreign('id_user')->references('nik')->on('users');
             $table->foreign('id_buku')->references('id')->on('books');
         });
