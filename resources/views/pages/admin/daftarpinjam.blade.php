@@ -67,7 +67,7 @@
                             <th>Peminjam</th>
                             <th>Judul Buku</th>
                             <th>Tanggal Pinjam</th>
-                            <th>Status Kembali</th>
+                            <th>Status</th>
                             <th>Aksi</th>
                         </thead>
                         <tbody>
@@ -81,15 +81,12 @@
                                 <td>{{ $data->id_buku }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>
-                                    @if ($data->updated_at === null)
-                                    <div class="badge bg-danger px-2 py-1">
-                                        Dipinjam
-                                    </div>
+                                    @if ($data->status_pinjam = 'PENDING')
+                                    <p class="badge text-bg-warning bg-warning p-2">PENDING</p>
+                                    @elseif ($data->status_pinjam = 'DIPINJAM')
+                                    <p class="badge text-bg-warning bg-info p-2">DIPINJAM</p>
                                     @else
-                                    <div class="badge bg-success px-2 py-1">
-                                        Dikembalikan
-                                    </div>
-
+                                    <p class="badge text-bg-warning bg-success p-2">DIKEMBALIKAN</p>
                                     @endif
                                 </td>
                                 <td>

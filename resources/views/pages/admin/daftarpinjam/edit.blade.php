@@ -90,17 +90,20 @@
                                 <select class="form-select"
                                         id="floatingSelect"
                                         aria-label="status"
-                                        name="status">
+                                        name="status_pinjam">
                                     <option selected
                                             hidden>
-                                        @if ($data->updated_at === null)
-                                        Dipinjam
+                                        @if ($data->status_pinjam = 'PENDING')
+                                        PENDING
+                                        @elseif ($data->status_pinjam = 'DIPINJAM')
+                                        DIPINJAM
                                         @else
-                                        Dikembalikan
+                                        DIKEMBALIKAN
                                         @endif
                                     </option>
-                                    <option value="{{now()}}">Dipinjam</option>
-                                    <option value="{{ null }}">Dikembalikan</option>
+                                    <option value="PENDING">PENDING</option>
+                                    <option value="DIPINJAM">DIPINJAM</option>
+                                    <option value="DIKEMBALIKAN">DIKEMBALIKAN</option>
                                 </select>
                                 <label for="floatingSelect">Status</label>
 

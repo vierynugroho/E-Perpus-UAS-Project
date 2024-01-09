@@ -46,6 +46,9 @@ class HomeController extends Controller
             ->orderByDesc('jumlah_literasi')
             ->pluck('id_user')
             ->search($user->nik);
+        $count_buku_dibaca = Literation::where('id_user', $user->nik)
+            ->distinct('id_buku')
+            ->count('id_buku');
 
         // admin information
         $count_buku = Book::all()->count();
@@ -66,7 +69,8 @@ class HomeController extends Controller
             // user information
             'rank_user' => $rank_user + 1,
             'count_literasi_user' => $count_literasi_user,
-            'count_pinjam_user' => $count_pinjam_user
+            'count_pinjam_user' => $count_pinjam_user,
+            'count_buku_dibaca' => $count_buku_dibaca
         ]);
     }
 }

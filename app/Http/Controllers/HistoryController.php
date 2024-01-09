@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pinjam;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
@@ -11,7 +12,12 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        return view('pages.history');
+        $datas = Pinjam::all();
+        $count_dipinjam = Pinjam::where('id_user', auth()->user()->nik)->count();
+        return view('pages.history', [
+            'datas' => $datas,
+            'count_dipinjam' => $count_dipinjam
+        ]);
     }
 
     /**

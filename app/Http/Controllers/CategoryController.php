@@ -13,8 +13,10 @@ class CategoryController extends Controller
     public function index()
     {
         $datas = Category::all();
+        $count_kategori = Category::all()->count();
         return view('pages.admin.daftarKategori', [
-            'datas' => $datas
+            'datas' => $datas,
+            'count_kategori' => $count_kategori,
         ]);
     }
 
