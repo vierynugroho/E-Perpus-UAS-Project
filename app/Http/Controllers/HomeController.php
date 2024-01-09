@@ -26,26 +26,31 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
+    public function index(Request $request)
     {
-        $datas = Book::all();
+        $cari_buku = $request->input('cari_buku');
+        $datas = $cari_buku ? Book::where('judul', 'like', '%' . $cari_buku . '%')->get() : Book::all();
         $categories = Category::all();
 
         return view('home', [
             'datas' => $datas,
-            'categories' => $categories
-
+            'categories' => $categories,
+            'cari_buku' => $cari_buku
         ]);
     }
 
-    public function homeByCategory(string $id)
+    public function homeByCategory(Request $request, string $id)
     {
-        $datas = Book::where('id_kategori', $id)->get();
+        $cari_buku = $request->input('cari_buku');
+        $datas = Book::where('id_kategori', $id)
+            ->where('judul', 'like', '%' . $cari_buku . '%')
+            ->get();
         $category = Category::findOrFail($id);
+
         return view('homeByCategory', [
             'datas' => $datas,
-            'category' => $category
-
+            'category' => $category,
+            'cari_buku' => $cari_buku
         ]);
     }
 

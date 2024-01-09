@@ -6,13 +6,24 @@
         <div class="row">
 
             <div class="row bg-primary p-5 rounded mx-auto shadow">
-                <div class="col-8 col-sm-12 mx-auto my-5 w-100">
+                <div class="col-6 col-sm-12 mx-auto my-5 w-100">
                     <form class="d-flex"
-                          role="search">
+                          role="search"
+                          @if($cari_buku===null)
+                          action='{{ route('home') }}'
+                          @else
+                          action='{{ route('cari_buku', $cari_buku) }}'
+                          @endif
+                          method="GET">
+                        @csrf
                         <input class="form-control me-2"
                                type="search"
                                placeholder="Cari Buku"
-                               aria-label="Search">
+                               aria-label="Search"
+                               name="cari_buku"
+                               value="{{ $cari_buku }}">
+                        <button class="btn btn-outline-light"
+                                type="submit">Cari</button>
                     </form>
                 </div>
             </div>
