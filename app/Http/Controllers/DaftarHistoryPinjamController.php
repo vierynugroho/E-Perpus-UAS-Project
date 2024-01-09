@@ -5,21 +5,24 @@ namespace App\Http\Controllers;
 use App\Models\Pinjam;
 use Illuminate\Http\Request;
 
-class DaftarPinjamController extends Controller
+class DaftarHistoryPinjamController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $datas = Pinjam::all();
+        $datas = Pinjam::where('status_pinjam', ['DIKEMBALIKAN'])->get();
+        $count_dikembalikan = Pinjam::whereIn('status_pinjam', ['DIKEMBALIKAN'])
+            ->count();
         $count_dipinjam = Pinjam::whereIn('status_pinjam', ['PENDING', 'DIPINJAM'])
             ->count();
         $count_peminjam = Pinjam::distinct('id_user')->count('id_user');
-        return view('pages.admin.daftarpinjam', [
+        return view('pages.admin.daftarHistoriPinjam', [
             'datas' => $datas,
             'count_peminjam' => $count_peminjam,
             'count_dipinjam' => $count_dipinjam,
+            'count_dikembalikan' => $count_dikembalikan,
         ]);
     }
 
@@ -52,10 +55,7 @@ class DaftarPinjamController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Pinjam::find($id);
-        return view('pages.admin.daftarpinjam.edit', [
-            'data' => $data
-        ]);
+        //
     }
 
     /**

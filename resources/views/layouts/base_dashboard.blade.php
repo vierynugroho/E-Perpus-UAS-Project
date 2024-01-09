@@ -79,13 +79,9 @@
             <!-- Nav Item - Data Literasi -->
             <li class="nav-item {{ Request::is('dashboard/literasi*') ? 'active' : '' }}">
                 <a class="nav-link"
-                   href="
-                                           /dashboard/literasi"">
-                                            <i class="
-                   fas
-                   fa-fw
-                   fa-chart-area"></i>
-                    <span>Literasi</span></a>
+                   href="/dashboard/literasi"><i class="fas fa-fw fa-chart-area"></i>
+                    <span>Literasi</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -120,6 +116,13 @@
                    /dashboard/daftarpinjam">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Daftar Pinjam</span></a>
+            </li>
+            <li class="nav-item {{ Request::is('dashboard/daftarhistoripinjam*') ? 'active' : '' }}">
+                <a class="nav-link"
+                   href="
+                   /dashboard/daftarhistoripinjam">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Daftar History Pinjam</span></a>
             </li>
 
             <li class="nav-item {{ Request::is('dashboard/daftarliterasi*') ? 'active' : '' }}">
