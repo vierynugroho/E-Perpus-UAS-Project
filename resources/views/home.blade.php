@@ -4,7 +4,6 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="row">
-
             <div class="row bg-primary p-5 rounded mx-auto shadow">
                 <div class="col-6 col-sm-12 mx-auto my-5 w-100">
                     <form class="d-flex"

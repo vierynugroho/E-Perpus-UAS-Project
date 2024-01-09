@@ -57,7 +57,6 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
         $validator = Validator::make($request->all(), [
             'name' => 'required|string',
             'prodi' => 'required|email:dns',

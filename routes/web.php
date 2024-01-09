@@ -21,6 +21,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detail');
     Route::get('/homebycategory/{id}', [HomeController::class, 'homeByCategory'])->name('homeByCategory');
+
+    // search
     Route::get('/{cari_buku}', [HomeController::class, 'index'])->name('cari_buku');
     Route::get('/homebycategory/{id}/{cari_buku}', [HomeController::class, 'homeByCategory'])->name('cari_buku_perkategori');
 
