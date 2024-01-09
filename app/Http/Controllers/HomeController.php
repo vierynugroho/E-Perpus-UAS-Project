@@ -73,4 +73,12 @@ class HomeController extends Controller
             'count_buku_dibaca' => $count_buku_dibaca
         ]);
     }
+
+    public function detail(string $id)
+    {
+        $data = Book::findOrFail($id);
+        return view('detail', [
+            'data' => $data
+        ]);
+    }
 }

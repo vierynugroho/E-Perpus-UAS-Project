@@ -37,16 +37,18 @@
                                 </div>
 
                                 <div class="col-6">
-                                    <div class="book-detail">
-                                        <h6>Judul Buku</h6>
-                                        <p>{{ $data->judul }}</p>
-                                        <hr>
-                                        <h6>Penulis</h6>
-                                        <p>{{ $data->penulis }}</p>
-                                        <hr>
-                                        <h6>Stock</h6>
-                                        <p>{{ $data->quantity }}</p>
-                                    </div>
+                                    <a href="/detail/{{ $data->id }}">
+                                        <div class="book-detail">
+                                            <h6>Judul Buku</h6>
+                                            <p>{{ $data->judul }}</p>
+                                            <hr>
+                                            <h6>Penulis</h6>
+                                            <p>{{ $data->penulis }}</p>
+                                            <hr>
+                                            <h6>Stock</h6>
+                                            <p>{{ $data->quantity }}</p>
+                                        </div>
+                                    </a>
                                     <div class="book-action">
                                         <button class="btn btn-info d-block w-100">Pinjam</button>
                                     </div>

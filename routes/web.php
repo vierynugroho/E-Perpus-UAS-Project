@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\{Route, Auth};
 Auth::routes(['verify' => true]);
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [HomeController::class, 'index'])->name('home');
+    Route::get('/detail/{id}', [HomeController::class, 'detail'])->name('detail');
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::resource('/dashboard/pinjam', PinjamController::class);
     Route::resource('/dashboard/history', HistoryController::class);
