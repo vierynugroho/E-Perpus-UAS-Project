@@ -171,7 +171,7 @@
             <div class="card-body">
                 <ul class="list-group">
                     <li class="list-item list-unstyled">
-                        <div class="row">
+                        <div class="row fw-bold">
                             <div class="col-2">
                                 <p class="text-center">Rank</p>
                             </div>

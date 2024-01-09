@@ -11,7 +11,7 @@
 
 <!-- Content Row -->
 <div class="row">
-    <!-- Buku Dipinjam Card  -->
+    <!-- Buku Dibaca Card  -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-primary shadow h-100 py-2">
             <div class="card-body">
@@ -19,7 +19,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Buku Dibaca</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">1 Buku</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_buku_dibaca }} Buku</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -29,18 +29,54 @@
         </div>
     </div>
 
-    <!-- Dibaca Card -->
+    <!-- Buku Total Literasi Card  -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            Total Literasi</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_literasi }} Literasi</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Anggota Literasi Card -->
     <div class="col-xl-3 col-md-6 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                            Buku Dibaca</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">1 Buku</div>
+                            Anggota Literasi</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_anggota_literasi }} Anggota</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Buku Dipinjam Card -->
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                            Buku Dipinjam</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_buku_dipinjam }} Buku</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-comments fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -64,26 +100,21 @@
                     <table class="table display"
                            id="dataTable">
                         <thead>
-                            <th>No</th>
+                            <th>Rank</th>
                             <th>Nama</th>
                             <th>Poin Literasi</th>
                         </thead>
                         <tbody>
+                            @php
+                            $i = 1;
+                            @endphp
+                            @foreach ($leaderboards as $leaderboard)
                             <tr>
-                                <td>1</td>
-                                <td>Sigit Rendang</td>
-                                <td>4</td>
+                                <td>{{ $i++ }}</td>
+                                <td>{{$leaderboard->id_user}}</td>
+                                <td>{{ $leaderboard->jumlah_literasi }}</td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Asep Rawon</td>
-                                <td>2</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Mariadi Kerupuk</td>
-                                <td>1</td>
-                            </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

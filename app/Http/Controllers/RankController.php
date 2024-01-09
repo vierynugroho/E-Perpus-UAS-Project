@@ -2,21 +2,37 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Literation;
 use App\Models\Pinjam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
-class HistoryController extends Controller
+class RankController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $datas = Pinjam::where('id_user', auth()->user()->nik)->get();
-        $count_dipinjam = Pinjam::where('id_user', auth()->user()->nik)->count();
-        return view('pages.history', [
-            'datas' => $datas,
-            'count_dipinjam' => $count_dipinjam
+        $count_literasi = Literation::all()->count();
+        $count_buku_dibaca = Literation::distinct('id_buku')
+            ->count('id_buku');
+        $count_anggota_literasi = Literation::distinct('id_user')
+            ->count('id_user');
+        $count_buku_dipinjam = Pinjam::distinct('id_buku')
+            ->count('id_buku');
+
+        $leaderboards = Literation::select('id_user', DB::raw('count(*) as jumlah_literasi'))
+            ->groupBy('id_user')
+            ->orderBy('jumlah_literasi', 'DESC')
+            ->get();
+
+        return view('pages.leaderboard', [
+            'count_literasi' => $count_literasi,
+            'count_buku_dibaca' => $count_buku_dibaca,
+            'count_anggota_literasi' => $count_anggota_literasi,
+            'count_buku_dipinjam' => $count_buku_dipinjam,
+            'leaderboards' => $leaderboards
         ]);
     }
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Pinjam;
 use Illuminate\Http\Request;
 
 class BukuController extends Controller
@@ -13,9 +14,14 @@ class BukuController extends Controller
     public function index()
     {
         $datas = Book::all();
+        $count_pinjam = Pinjam::whereIn('status_pinjam', ['PENDING', 'DIPINJAM'])
+            ->count();
+        $total_buku = Book::all()->sum('quantity');
 
         return view('pages.admin.daftarBuku', [
-            'datas' => $datas
+            'datas' => $datas,
+            'count_pinjam' => $count_pinjam,
+            'total_buku' => $total_buku
         ]);
     }
 

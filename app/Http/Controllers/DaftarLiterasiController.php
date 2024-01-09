@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Literation;
+use App\Models\Pinjam;
 use Illuminate\Http\Request;
 
 class DaftarLiterasiController extends Controller
@@ -13,8 +14,20 @@ class DaftarLiterasiController extends Controller
     public function index()
     {
         $datas =   Literation::all();
+        $count_literasi = Literation::all()->count();
+        $count_buku_dibaca = Literation::distinct('id_buku')
+            ->count('id_buku');
+        $count_anggota_literasi = Literation::distinct('id_user')
+            ->count('id_user');
+        $count_buku_dipinjam = Pinjam::distinct('id_buku')
+            ->count('id_buku');
+
         return view('pages.admin.daftarLiterasi', [
-            'datas' => $datas
+            'datas' => $datas,
+            'count_literasi' => $count_literasi,
+            'count_buku_dibaca' => $count_buku_dibaca,
+            'count_anggota_literasi' => $count_anggota_literasi,
+            'count_buku_dipinjam' => $count_buku_dipinjam
         ]);
     }
 
