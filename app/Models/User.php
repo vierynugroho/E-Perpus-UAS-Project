@@ -17,6 +17,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
+    protected $primaryKey = 'nik';
     protected $fillable = [
         'name',
         'email',
@@ -24,13 +25,6 @@ class User extends Authenticatable implements MustVerifyEmail
         'is_admin',
         'nik',
     ];
-
-    protected $primaryKey = 'nik';
-
-    public function getRouteKeyName()
-    {
-        return 'nik';
-    }
 
     /**
      * The attributes that should be hidden for serialization.

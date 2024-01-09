@@ -100,10 +100,12 @@
                                         @endif
                                         @if($data->is_admin)
                                         <option selected
-                                                hidden>Admin</option>
+                                                hidden
+                                                value="1">Admin</option>
                                         @else
                                         <option selected
-                                                hidden>User</option>
+                                                hidden
+                                                value="0">User</option>
                                         @endif
                                         <option value="0">User</option>
                                         <option value="1">Admin</option>
@@ -126,7 +128,7 @@
                                        disabled>* Isi form jika ingin mengubah password</small>
                             </div>
                         </div>
-                        <div class="col-12 col-md-6">
+                        <div class="col-12">
                             <div class="form-floating mb-3">
                                 <input type="password"
                                        class="form-control"
@@ -138,25 +140,6 @@
                                        autofocus>
                                 <label for="floatingInput">Password</label>
                                 @error('password')
-                                <span class="invalid-feedback"
-                                      role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6">
-                            <div class="form-floating mb-3">
-                                <input type="password"
-                                       class="form-control"
-                                       id="floatingInputConfirm"
-                                       placeholder="Konfirmasi Password"
-                                       name="password_confirm"
-                                       value="{{ old('password_confirm') }}"
-                                       autocomplete="password_confirm"
-                                       autofocus>
-                                <label for="floatingInputConfirm">Konfirmasi Password</label>
-                                @error('password_confirm')
                                 <span class="invalid-feedback"
                                       role="alert">
                                     <strong>{{ $message }}</strong>

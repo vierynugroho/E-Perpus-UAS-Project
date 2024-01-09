@@ -56,7 +56,6 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
-
         $user = User::find($id);
         $user->nik = $request['nik'];
         $user->name = $request['name'];
