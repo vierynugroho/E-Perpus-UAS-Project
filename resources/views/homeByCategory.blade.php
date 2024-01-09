@@ -16,44 +16,19 @@
                     </form>
                 </div>
             </div>
-            <div class=" container shadow kategori-content row mt-4">
+            <div class="container shadow book-content row my-5">
                 <div class="row">
                     <div class="col-12">
-                        <h4 class="fw-bold">KATEGORI</h4>
-                    </div>
-                    <div class="divider">
-                        <br>
-                    </div>
-                </div>
-                <div class="row d-flex flex-nowrap overflow-auto">
-                    @forelse ($categories as $category)
-                    <div class="col-6 col-md-3">
-                        <a href="/homebycategory/{{ $category->id }}"
-                           class="text-decoration-none">
-                            <div class="card shadow rounded mb-3">
-                                <div class="card-body mx-auto">
-                                    <h3>{{ $category->name }}</h3>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    @empty
-                    <p class="text-center text-muted">- TIDAK ADA BUKU -</p>
-                    @endforelse
-                </div>
-            </div>
-            <div class="container shadow book-content row my-5 p-2">
-                <div class="row">
-                    <div class="col-12">
-                        <h4 class="fw-bold">PERPUSTAKAAN</h4>
+                        <h4>PERPUSTAKAAN : {{ $category->name }}</h4>
                     </div>
                     <div class="divider">
                         <br>
                     </div>
                 </div>
                 <div class="row d-flex mx-auto">
-                    @foreach ($datas as $data)
+                    @forelse ($datas as $data)
                     <div class="col-12 col-md-6 col-lg-4">
+
                         <div class="card book shadow rounded p-3 m-3 d-flex">
                             <div class="row w-100">
                                 <div class="col-6">
@@ -89,7 +64,9 @@
 
                         </div>
                     </div>
-                    @endforeach
+                    @empty
+                    <h1 class="text-center text-muted p-5">- TIDAK ADA BUKU -</h1>
+                    @endforelse
                 </div>
             </div>
 

@@ -7,7 +7,7 @@
             <div class="col-md-4 text-center">
                 <img src="https://berita.99.co/wp-content/uploads/2022/08/Contoh-Cover-Buku-Noverl-Simple-yang-Populer.jpg"
                      class="img-fluid mx-auto "
-                     alt="...">
+                     alt="Cover">
 
             </div>
             <div class="col-md-8 position-relative">
@@ -32,7 +32,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
 </div>

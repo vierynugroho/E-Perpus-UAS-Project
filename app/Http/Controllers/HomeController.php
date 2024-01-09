@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use App\Models\Literation;
 use App\Models\Pinjam;
 use Illuminate\Http\Request;
@@ -28,9 +29,31 @@ class HomeController extends Controller
     public function index()
     {
         $datas = Book::all();
+        $categories = Category::all();
+
         return view('home', [
             'datas' => $datas,
+            'categories' => $categories
 
+        ]);
+    }
+
+    public function homeByCategory(string $id)
+    {
+        $datas = Book::where('id_kategori', $id)->get();
+        $category = Category::findOrFail($id);
+        return view('homeByCategory', [
+            'datas' => $datas,
+            'category' => $category
+
+        ]);
+    }
+
+    public function detail(string $id)
+    {
+        $data = Book::findOrFail($id);
+        return view('detail', [
+            'data' => $data
         ]);
     }
 
@@ -71,14 +94,6 @@ class HomeController extends Controller
             'count_literasi_user' => $count_literasi_user,
             'count_pinjam_user' => $count_pinjam_user,
             'count_buku_dibaca' => $count_buku_dibaca
-        ]);
-    }
-
-    public function detail(string $id)
-    {
-        $data = Book::findOrFail($id);
-        return view('detail', [
-            'data' => $data
         ]);
     }
 }

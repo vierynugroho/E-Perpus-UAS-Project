@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('tahun', 4);
             $table->integer('quantity')->default(1);
             $table->string('cover', 4);
+            $table->text('sinopsis');
             $table->timestamps();
 
             $table->foreign('id_kategori')->references('id')->on('categories');
