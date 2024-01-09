@@ -12,7 +12,7 @@ class HistoryController extends Controller
      */
     public function index()
     {
-        $datas = Pinjam::where('id_user', auth()->user()->nik)->get();
+        $datas = Pinjam::where('id_user', auth()->user()->nik)->whereIn('status_pinjam', ['DIKEMBALIKAN'])->get();
         $count_dipinjam = Pinjam::where('id_user', auth()->user()->nik)->count();
         return view('pages.history', [
             'datas' => $datas,
