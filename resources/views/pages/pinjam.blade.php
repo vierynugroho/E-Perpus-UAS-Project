@@ -16,7 +16,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
                             Buku Dipinjam</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">2 Buku</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_pinjam_user }} Buku</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-calendar fa-2x text-gray-300"></i>
@@ -34,7 +34,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
                             Buku Dibaca</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">1 Buku</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_buku_dibaca }} Buku</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
@@ -54,7 +54,7 @@
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Top 1</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Rank {{ $rank_user }}</div>
                             </div>
                             <div class="col">
                                 <div class="progress progress-sm mr-2">
@@ -84,7 +84,7 @@
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
                             Literasi</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">10 Literasi</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_literasi_user }} Literasi</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-comments fa-2x text-gray-300"></i>
@@ -117,13 +117,18 @@
                             <th>Tanggal Pinjam</th>
                         </thead>
                         <tbody>
+                            @php
+                            $i=1;
+                            @endphp
+                            @foreach ($datas as $data)
                             <tr>
-                                <td>1</td>
-                                <td>Jual Melon</td>
-                                <td>dajjal</td>
-                                <td>Canda Pedia</td>
-                                <td>1 Januari 2024</td>
+                                <td>{{ $i++ }}</td>
+                                <td>{{ $data->id_buku }}</td>
+                                <td>{{ $data->id_buku }}</td>
+                                <td>{{ $data->id_buku }}</td>
+                                <td>{{ $data->created_at }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
