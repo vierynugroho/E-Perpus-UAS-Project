@@ -16,14 +16,32 @@
                         <h1 class="card-title">{{$data->judul}}</h1>
                         <hr>
                         <p class="card-text">
-                        <h6>Pengarang</h6>
-                        <p>{{ $data->penulis }}</p>
-                        <h6>Penerbit</h6>
-                        <p>{{ $data->penerbit }}</p>
-                        <h6>Kategori</h6>
-                        <p>{{ $data->id_kategori }}</p>
-                        <h6>Stok</h6>
-                        <p>{{ $data->quantity }}</p>
+                        <div class="row">
+                            <div class="col-12">
+                                {!! $data->sinopsis !!}
+                            </div>
+                        </div>
+                        <hr class="sidebar-divider">
+                        <div class="row">
+                            <div class="col-6">
+                                <h6>Pengarang</h6>
+                                <p>{{ $data->penulis }}</p>
+                            </div>
+                            <div class="col-6">
+                                <h6>Penerbit</h6>
+                                <p>{{ $data->penerbit }}</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <h6>Kategori</h6>
+                                <p>{{ $data->id_kategori }}</p>
+                            </div>
+                            <div class="col-6">
+                                <h6>Stok</h6>
+                                <p>{{ $data->quantity }}</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="book-action p-3 position-absolute bottom-0 w-100">
