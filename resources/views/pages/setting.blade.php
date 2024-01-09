@@ -24,7 +24,9 @@
                             <div class="mb-3">
                                 <label for="nama">Nama Lengkap</label>
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('name')
+                                           is-invalid
+                                       @enderror"
                                        id="nama"
                                        placeholder="Nama Lengkap"
                                        name="name"
@@ -46,7 +48,9 @@
                             <div class="mb-3">
                                 <label for="email">Email</label>
                                 <input type="email"
-                                       class="form-control"
+                                       class="form-control @error('email')
+                                           is-invalid
+                                       @enderror"
                                        placeholder="Email"
                                        name="email"
                                        value="{{ $data->email }}"
@@ -67,7 +71,9 @@
                             <div class=" mb-3">
                                 <label for="nik">NIK</label>
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('nik')
+                                           is-invalid
+                                       @enderror"
                                        id="nik"
                                        placeholder="NIK"
                                        name="nik"
@@ -131,7 +137,9 @@
                         <div class="col-12">
                             <div class="form-floating mb-3">
                                 <input type="password"
-                                       class="form-control"
+                                       class="form-control @error('password')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="password"
                                        name="password"

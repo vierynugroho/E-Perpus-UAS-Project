@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
@@ -56,6 +57,19 @@ class UserController extends Controller
      */
     public function update(Request $request, string $id)
     {
+
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string',
+            'prodi' => 'required|email:dns',
+            'nik' => 'required|min:16',
+            'is_admin' => 'required',
+            'password' => 'min:8',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('dashboard/settings')->withInput($request->all())->withErrors($validator);
+        }
+
         $user = User::find($id);
         $user->nik = $request['nik'];
         $user->name = $request['name'];
@@ -65,6 +79,7 @@ class UserController extends Controller
         if ($request->password) {
             $user->password = bcrypt($request['password']);
         }
+
 
         $user->save();
 
