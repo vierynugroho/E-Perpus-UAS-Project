@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Pinjam;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class DaftarHistoryPinjamController extends Controller
@@ -55,7 +57,10 @@ class DaftarHistoryPinjamController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = Pinjam::find($id);
+        return view('pages.admin.historiPinjam.edit', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -63,7 +68,30 @@ class DaftarHistoryPinjamController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $data = Pinjam::find($id);
+            $data['status_pinjam'] = $request->status_pinjam;
+            $data->save();
+
+            $pinjam = Pinjam::find($id);
+            if ($pinjam->status_pinjam == 'PENDING' || $pinjam->status_pinjam == 'DIKEMBALIKAN') {
+                $quantity = $pinjam->book->quantity + 1;
+                $book = Book::find($pinjam->book->id);
+                $book['quantity'] = $quantity;
+
+                $book->save();
+            } else {
+                $quantity = $pinjam->book->quantity - 1;
+                $book = Book::find($pinjam->book->id);
+                $book['quantity'] = $quantity;
+                $book->save();
+            }
+
+
+            return redirect('dashboard/daftarhistoripinjam')->with('success', 'BERHASIL! Status Buku Diubah!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/daftarhistoripinjam')->with('error', 'GAGAL! Status Buku Gagal Diubah!');
+        }
     }
 
     /**
@@ -71,6 +99,18 @@ class DaftarHistoryPinjamController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $pinjam = Pinjam::find($id);
+            $pinjam->delete();
+
+            $quantity = $pinjam->book->quantity + 1;
+            $book = Book::find($pinjam->book->id);
+            $book['quantity'] = $quantity;
+            $book->save();
+
+            return redirect('dashboard/daftarhistoripinjam')->with('success', 'BERHASIL! Buku Dihapus Dari Daftar Pinjam!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/daftarhistoripinjam')->with('error', 'GAGAL! Buku Gagal Dihapus Dari Daftar Pinjam!');
+        }
     }
 }

@@ -78,7 +78,7 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{$i++}}</td>
-                                <td>{{ $data->id_user }}</td>
+                                <td>{{ $data->user->name }}</td>
                                 <td>{{ $data->book->judul }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>
