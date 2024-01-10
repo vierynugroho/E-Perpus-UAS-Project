@@ -94,16 +94,14 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Administrator
-            </div>
-
             {{-- ! END USER ! --}}
 
             {{-- ! ADMIN ! --}}
             @else
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Administrator
+            </div>
             <!-- Nav Item - Daftar Buku -->
             <li class="nav-item {{ Request::is('dashboard/daftarbuku*') ? 'active' : '' }}">
                 <a class="nav-link"
