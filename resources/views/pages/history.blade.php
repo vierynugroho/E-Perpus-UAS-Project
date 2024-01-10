@@ -6,7 +6,7 @@
     <h1 class="h3 mb-0 text-gray-800">History Pinjam</h1>
     <a href="#"
        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-           class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+           class="fas fa-download fa-sm text-white-50"></i> Cetak Laporan</a>
 </div>
 
 <!-- Content Row -->
@@ -22,7 +22,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_dipinjam }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-book fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -31,14 +31,13 @@
 </div>
 
 <!-- Content Row -->
-<div class="row">
-
+<div class="row mt-3">
     <!-- Content Column -->
     <div class="col-12">
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Buku</h6>
+            <div class="card-header py-3 text-bg-primary bg-primary">
+                <h6 class="m-0 font-weight-bold">Data Buku</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -62,9 +61,9 @@
                                 <td>@if ($data->status_pinjam === 'PENDING')
                                     <p class="badge text-bg-warning bg-warning p-2">PENDING</p>
                                     @elseif ($data->status_pinjam === 'DIPINJAM')
-                                    <p class="badge text-bg-warning bg-info p-2">DIPINJAM</p>
+                                    <p class="badge text-bg-primary bg-primary p-2">DIPINJAM</p>
                                     @else
-                                    <p class="badge text-bg-warning bg-success p-2">DIKEMBALIKAN</p>
+                                    <p class="badge text-bg-success bg-success p-2">DIKEMBALIKAN</p>
                                     @endif
                                 </td>
                                 <td>{{ $data->created_at }}</td>

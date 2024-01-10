@@ -6,7 +6,7 @@
     <h1 class="h3 mb-0 text-gray-800">Literasi</h1>
     <a href="#"
        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-           class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+           class="fas fa-download fa-sm text-white-50"></i> Cetak Laporan</a>
 </div>
 
 <!-- Content Row -->
@@ -22,7 +22,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_literasi_user }} Literasi</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-tasks fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_buku_dibaca }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-check fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -59,20 +59,10 @@
                             <div class="col-auto">
                                 <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">Rank {{ $rank_user }}</div>
                             </div>
-                            <div class="col">
-                                <div class="progress progress-sm mr-2">
-                                    <div class="progress-bar bg-info"
-                                         role="progressbar"
-                                         style="width: 50%"
-                                         aria-valuenow="50"
-                                         aria-valuemin="0"
-                                         aria-valuemax="100"></div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
+                        <i class="fas fa-medal fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -90,7 +80,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_pinjam_user }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="fas fa-book fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -142,14 +132,23 @@
                                             Aksi
                                         </a>
 
-                                        {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/literasi/{{ $data->id }}">Detail</a></li>
+                                                   href="/dashboard/literasi/{{ $data->id }}"><i
+                                                       class="fas fa-eye fa-sm text-primary"></i> Detail</a></li>
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/literasi/{{ $data->id }}/edit">Edit</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="/dashboard/literasi/{{ $data->id }}">Hapus</a></li>
+                                                   href="/dashboard/literasi/{{ $data->id }}/edit"><i
+                                                       class="fas fa-pen fa-sm text-primary"></i> Edit</a></li>
+                                            <li>
+                                                 <form action="{{ route('literasi.destroy', $data->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                            class="dropdown-item"><i
+                                                           class="fas fa-trash fa-sm text-primary"></i> Hapus</button>
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                 </td>

@@ -8,50 +8,59 @@
 </div>
 
 <!-- Content Row -->
-<form action=""
-      class="">
-    <div class="row d-flex align-items-center justify-content-center mt-5">
+<div class="row d-flex align-items-center justify-content-center mt-5">
 
-        <!-- Content Column -->
-        <div class="col-lg-10 mb-6">
-
-            <!-- Project Card Example -->
-            <div class="card shadow mb-4">
-                <div class="card-header py-3">
-                    <h6 class="m-0 font-weight-bold text-primary">Form Edit Literasi</h6>
-                </div>
-                <div class="card-body row">
-                    <div class="col-12 mb-3">
-                        <div class="form-floating">
-                            <select class="form-select"
-                                    id="floatingSelect"
-                                    aria-label="Judul Buku"
-                                    name="id_buku">
-                                <option selected
-                                        hidden>- Judul Buku Buku -</option>
-                                <option value="1">Matematika</option>
-                                <option value="2">Informatika</option>
-                                <option value="3">Sains</option>
-                            </select>
-                            <label for="floatingSelect">Judul Buku</label>
-
-                            @error('kategori')
-                            <span class="invalid-feedback"
-                                  role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
+    <!-- Content Column -->
+    <div class="col-lg-10 mb-6">
+        <!-- Project Card Example -->
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 text-bg-primary bg-primary">
+                <h6 class="m-0 font-weight-bold">Form Edit Literasi</h6>
+            </div>
+            <div class="card-body">
+                <form method="POST"
+                      action="{{ route('literasi.update', $data->id) }}"
+                      enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group row">
+                        <div class="col-12 mb-3">
+                            <div class="form-floating">
+                                <select class="form-select @error('id_buku')
+                                    is-invalid
+                                @enderror"
+                                        id="floatingSelect"
+                                        aria-label="Judul Buku"
+                                        name="id_buku"
+                                        required>
+                                    <option selected
+                                            hidden
+                                            value="{{ $data->id }}">{{ $data->book->judul }}</option>
+                                    @foreach ($books as $book)
+                                    <option value="{{ $book->id }}">{{ $book->judul }}</option>
+                                    @endforeach
+                                </select>
+                                <label for="floatingSelect">Judul Buku</label>
+                                @error('id_buku')
+                                <span class="invalid-feedback"
+                                      role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-8">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('judul')
+                                           is-invalid
+                                           @enderror"
                                        id="floatingInput"
                                        placeholder="Judul Ringkasan"
                                        name="judul"
-                                       value="{{ old('judul') }}"
+                                       value="{{ $data->judul }}"
                                        required
                                        autocomplete="judul"
                                        autofocus>
@@ -67,16 +76,18 @@
                         <div class="col-4">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('halaman')
+                                               is-invalid
+                                           @enderror"
                                        id="floatingInput"
                                        placeholder="Halaman Dibaca"
-                                       name="halaman_dibaca"
-                                       value="example: 1 - 10"
+                                       name="halaman"
+                                       value="{{$data->halaman}}"
                                        required
-                                       autocomplete="halaman_dibaca"
+                                       autocomplete="halaman"
                                        autofocus>
                                 <label for="floatingInput">Halaman Dibaca</label>
-                                @error('halaman_dibaca')
+                                @error('halaman')
                                 <span class="invalid-feedback"
                                       role="alert">
                                     <strong>{{ $message }}</strong>
@@ -84,32 +95,48 @@
                                 @enderror
                             </div>
                         </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="col-12 mb-3">
                             <label for="ringkasan"
-                                   class="form-label">Ringkasan</label>
-                            <textarea class="form-control"
+                                   class="form-label">Ringkasan
+                                <p>
+                                    <small>* Panjang ringkasan minimal 200
+                                        karakter</small>
+                                </p>
+                            </label>
+                            <textarea class="form-control @error('ringkasan')
+                                is-invalid
+                            @enderror"
                                       name="ringkasan"
                                       id="ckeditor"
                                       cols="30"
-                                      rows="10"
-                                      minlength="200"></textarea>
+                                      rows="10">{!! $data->ringkasan !!}</textarea>
+                            @error('ringkasan')
+                            <span class="invalid-feedback"
+                                  role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
-                        <button type="submit"
-                                class="btn btn-primary mt-4"><i class="fa fa-save"
-                               aria-hidden="true"></i> Simpan</button>
                     </div>
-                </div>
+                    <div class="row">
+                        <button type="submit"
+                                class="btn btn-primary mt-4"><i class="fa fa-save"></i> Simpan</button>
+                    </div>
+                </form>
             </div>
         </div>
-</form>
-@endsection
+    </div>
+    </form>
+    @endsection
 
-@push('addOnBottomScript')
-<script>
-    ClassicEditor
+    @push('addOnBottomScript')
+    <script>
+        ClassicEditor
         .create( document.querySelector( '#ckeditor' ) )
         .catch( error => {
             console.error( error );
         } );
-</script>
-@endpush
+    </script>
+    @endpush

@@ -11,6 +11,14 @@ class Literation extends Model
 
     protected $table = 'literations';
 
+    protected $fillable = [
+        'judul',
+        'id_buku',
+        'id_user',
+        'ringkasan',
+        'halaman',
+    ];
+
     public function user()
     {
         return $this->belongsTo(User::class, 'id_user', 'nik');

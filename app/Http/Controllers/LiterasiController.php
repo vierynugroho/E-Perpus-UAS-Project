@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Literation;
 use App\Models\Pinjam;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -42,7 +44,10 @@ class LiterasiController extends Controller
      */
     public function create()
     {
-        return view('pages.literasi.tambah');
+        $books = Book::all();
+        return view('pages.literasi.tambah', [
+            'books' => $books
+        ]);
     }
 
     /**
@@ -50,7 +55,23 @@ class LiterasiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validatedData = $request->validate([
+                'judul' => 'required',
+                'id_buku' => 'required',
+                'halaman' => 'required',
+                'ringkasan' => 'required|min:200',
+            ]);
+
+
+            $validatedData['id_user'] = auth()->user()->nik;
+
+            Literation::create($validatedData);
+
+            return redirect('dashboard/literasi')->with('success', 'BERHASIL! Literasi Berhasil Ditambahkan!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/literasi')->with('error', 'GAGAL! Literasi Gagal Ditambahkan!');
+        }
     }
 
     /**
@@ -70,7 +91,13 @@ class LiterasiController extends Controller
      */
     public function edit(string $id)
     {
-        return view('pages.literasi.edit');
+        $data = Literation::findOrFail($id);
+        $books = Book::all();
+
+        return view('pages.literasi.edit', [
+            'data' => $data,
+            'books' => $books,
+        ]);
     }
 
     /**
@@ -78,7 +105,27 @@ class LiterasiController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $literasi = Literation::findOrFail($id);
+            $validatedData = $request->validate([
+                'judul' => 'required',
+                'id_buku' => 'required',
+                'halaman' => 'required',
+                'ringkasan' => 'required|min:200',
+            ]);
+
+
+            $literasi->judul = $validatedData['judul'];
+            $literasi->id_buku = $validatedData['id_buku'];
+            $literasi->halaman = $validatedData['halaman'];
+            $literasi->ringkasan = $validatedData['ringkasan'];
+
+            $literasi->save();
+
+            return redirect('dashboard/literasi')->with('success', 'BERHASIL! Literasi Berhasil Diubah!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/literasi')->with('error', 'GAGAL! Literasi Gagal Diubah!');
+        }
     }
 
     /**
@@ -86,6 +133,14 @@ class LiterasiController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $literation = Literation::find($id);
+
+            $literation->delete();
+
+            return redirect('dashboard/literasi')->with('success', 'BERHASIL! Literasi Berhasil Dihapus!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/literasi')->with('error', 'GAGAL! Literasi Gagal Dihapus!');
+        }
     }
 }

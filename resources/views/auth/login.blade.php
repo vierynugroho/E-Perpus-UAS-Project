@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Login') }}</div>
+                <div class="card-header bg-primary text-bg-primary">{{ __('Login') }}</div>
 
                 <div class="card-body">
                     <form method="POST"
@@ -56,8 +56,8 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="row mb-3 d-flex justify-content-center  align-items-center">
+                            <div class="col-6 d-flex justify-content-end">
                                 <div class="form-check">
                                     <input class="form-check-input"
                                            type="checkbox"
@@ -71,21 +71,22 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit"
-                                        class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
-
+                            <div class="col-6 d-flex justify-content-start">
                                 @if (Route::has('password.request'))
                                 <a class="btn btn-link"
                                    href="{{ route('password.request') }}">
                                     {{ __('Forgot Your Password?') }}
                                 </a>
                                 @endif
+                            </div>
+                        </div>
+
+                        <div class="row w-100">
+                            <div class="col-8 mx-auto">
+                                <button type="submit"
+                                        class="btn btn-primary d-block w-100">
+                                    {{ __('Login') }}
+                                </button>
                             </div>
                         </div>
                     </form>

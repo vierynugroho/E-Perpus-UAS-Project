@@ -6,7 +6,7 @@
     <h1 class="h3 mb-0 text-gray-800">Leaderboard</h1>
     <a href="#"
        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-           class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+           class="fas fa-download fa-sm text-white-50"></i> Cetak Laporan</a>
 </div>
 
 <!-- Content Row -->
@@ -22,7 +22,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_buku_dibaca }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-check fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_literasi }} Literasi</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-tasks fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -58,7 +58,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_anggota_literasi }} Anggota</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -76,7 +76,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_buku_dipinjam }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-comments fa-2x text-gray-300"></i>
+                        <i class="fas fa-book fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -92,8 +92,8 @@
     <div class="col-12">
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Leaderboard</h6>
+            <div class="card-header py-3 bg-primary text-bg-primary">
+                <h6 class="m-0 font-weight-bold">Leaderboard</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">

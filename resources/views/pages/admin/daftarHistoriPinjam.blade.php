@@ -6,7 +6,7 @@
     <h1 class="h3 mb-0 text-gray-800">Daftar History Pinjam</h1>
     <a href="#"
        class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-           class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
+           class="fas fa-download fa-sm text-white-50"></i> Cetak Laporan</a>
 </div>
 
 <!-- Content Row -->
@@ -22,7 +22,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_dipinjam }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-book fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -40,7 +40,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_peminjam }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-users fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
     </div>
 
     <!-- Dikembalikan Card -->
-    <div class="col-xl-3 col-md-6 mb-4">
+    <div class="col-12 mb-4">
         <div class="card border-left-success shadow h-100 py-2">
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
@@ -58,7 +58,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_dikembalikan }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-check fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -73,8 +73,8 @@
     <div class="col-12">
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
-            <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Data Pinjam</h6>
+            <div class="card-header py-3 text-bg-primary bg-primary">
+                <h6 class="m-0 font-weight-bold">Data Pinjam</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -102,9 +102,9 @@
                                     @if ($data->status_pinjam === 'PENDING')
                                     <p class="badge text-bg-warning bg-warning p-2">PENDING</p>
                                     @elseif ($data->status_pinjam === 'DIPINJAM')
-                                    <p class="badge text-bg-warning bg-info p-2">DIPINJAM</p>
+                                    <p class="badge text-bg-primary bg-primary p-2">DIPINJAM</p>
                                     @else
-                                    <p class="badge text-bg-warning bg-success p-2">DIKEMBALIKAN</p>
+                                    <p class="badge text-bg-success bg-success p-2">DIKEMBALIKAN</p>
                                     @endif
                                 </td>
                                 <td>
@@ -117,12 +117,13 @@
                                             Aksi
                                         </a>
 
-                                        {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/daftarpinjam/1/edit">Edit</a></li>
+                                                   href="/dashboard/daftarpinjam/1/edit"><i
+                                                       class="fas fa-pen fa-sm text-primary"></i> Edit</a></li>
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/daftarpinjam/1">Hapus</a></li>
+                                                   href="/dashboard/daftarpinjam/1"><i
+                                                       class="fas fa-trash fa-sm text-primary"></i> Hapus</a></li>
                                         </ul>
                                     </div>
                                 </td>

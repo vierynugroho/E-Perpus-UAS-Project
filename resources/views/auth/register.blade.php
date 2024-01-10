@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-hWeader">{{ __('Register') }}</div>
+                <div class="card-header bg-primary text-bg-primary">{{ __('Register') }}</div>
 
                 <div class="card-body">
                     <form method="POST"
@@ -129,10 +129,10 @@
                             </div>
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="row w-100">
+                            <div class="col-8 mx-auto">
                                 <button type="submit"
-                                        class="btn btn-primary">
+                                        class="btn btn-primary d-block w-100">
                                     {{ __('Register') }}
                                 </button>
                             </div>

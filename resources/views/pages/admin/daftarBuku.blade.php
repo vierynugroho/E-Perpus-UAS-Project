@@ -20,7 +20,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_pinjam }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        <i class="fas fa-book fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -38,7 +38,7 @@
                         <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $total_buku }} Buku</div>
                     </div>
                     <div class="col-auto">
-                        <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+                        <i class="fas fa-list fa-2x text-gray-300"></i>
                     </div>
                 </div>
             </div>
@@ -101,16 +101,19 @@
 
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/daftarbuku/{{ $data->id }}">Detail</a></li>
+                                                   href="/dashboard/daftarbuku/{{ $data->id }}"><i
+                                                       class="fas fa-eye fa-sm text-primary"></i> Detail</a></li>
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/daftarbuku/{{ $data->id }}/edit">Edit</a></li>
+                                                   href="/dashboard/daftarbuku/{{ $data->id }}/edit"><i
+                                                       class="fas fa-pen fa-sm text-primary"></i> Edit</a></li>
                                             <li>
                                                 <form action="{{ route('daftarbuku.destroy', $data->id) }}"
                                                       method="POST">
                                                     @method('DELETE')
                                                     @csrf
                                                     <button class="dropdown-item"
-                                                            type="submit">Hapus</button>
+                                                            type="submit"><i
+                                                           class="fas fa-trash fa-sm text-primary"></i> Hapus</button>
                                                 </form>
                                             </li>
                                         </ul>

@@ -86,13 +86,16 @@ class HomeController extends Controller
             ->groupBy('id_user')
             ->orderBy('jumlah_literasi', 'DESC')
             ->get();
+        $count_peminjam = Pinjam::distinct('id_user')->count('id_user');
 
         return view('pages.dashboard', [
+            'leaderboards' => $leaderboards,
+
             // admin information
             'count_pinjam' => $count_pinjam,
             'count_literasi' => $count_literasi,
             'count_buku' => $count_buku,
-            'leaderboards' => $leaderboards,
+            'count_peminjam' => $count_peminjam,
 
             // user information
             'rank_user' => $rank_user + 1,
