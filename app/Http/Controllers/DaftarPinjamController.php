@@ -12,8 +12,8 @@ class DaftarPinjamController extends Controller
      */
     public function index()
     {
-        $datas = Pinjam::where('status_pinjam', ['PENDING', 'DIPINJAM'])->get();
-        $count_dipinjam = Pinjam::where('status_pinjam', ['PENDING', 'DIPINJAM'])
+        $datas = Pinjam::whereIn('status_pinjam', ['PENDING', 'DIPINJAM'])->get();
+        $count_dipinjam = Pinjam::whereIn('status_pinjam', ['PENDING', 'DIPINJAM'])
             ->count();
         $count_peminjam = Pinjam::distinct('id_user')->count('id_user');
         return view('pages.admin.daftarpinjam', [
@@ -63,7 +63,10 @@ class DaftarPinjamController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = Pinjam::find($id);
+        $data['status_pinjam'] = $request->status_pinjam;
+
+        $data->save();
     }
 
     /**

@@ -102,9 +102,10 @@
                                         {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/daftarpinjam/1/edit">Edit</a></li>
+                                                   href="/dashboard/daftarpinjam/{{ $data->id }}/edit">Edit</a>
+                                            </li>
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/daftarpinjam/1">Hapus</a></li>
+                                                   href="/dashboard/daftarpinjam/{{ $data->id }}">Hapus</a></li>
                                         </ul>
                                     </div>
                                 </td>

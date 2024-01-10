@@ -19,6 +19,7 @@
                       action="{{ route('daftarpinjam.update', $data->id) }}"
                       enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-12">
                             <div class="form-floating mb-3">
@@ -27,10 +28,11 @@
                                        id="floatingInput"
                                        placeholder="Judul Buku"
                                        name="judul buku"
-                                       value="{{ $data->id_buku }}"
+                                       value="{{ $data->book->judul }}"
                                        required
                                        autocomplete="judul"
-                                       autofocus>
+                                       autofocus
+                                       disabled>
                                 <label for="floatingInput">Judul Buku</label>
                                 @error('judul buku')
                                 <span class="invalid-feedback"
@@ -49,10 +51,11 @@
                                        id="floatingInput"
                                        placeholder="Nama Peminjam"
                                        name="Nama Peminjam"
-                                       value="{{ $data->id_user }}"
+                                       value="{{ $data->user->name }}"
                                        required
                                        autocomplete=""
-                                       autofocus>
+                                       autofocus
+                                       disabled>
                                 <label for="floatingInput">Nama Peminjam</label>
                                 @error('namapeminjam')
                                 <span class="invalid-feedback"
@@ -72,7 +75,8 @@
                                        value="{{ $data->created_at }}"
                                        required
                                        autocomplete="id"
-                                       autofocus>
+                                       autofocus
+                                       disabled>
                                 <label for="floatingInput">Tanggal Pinjam</label>
                                 @error('id')
                                 <span class="invalid-feedback"
@@ -93,9 +97,9 @@
                                         name="status_pinjam">
                                     <option selected
                                             hidden>
-                                        @if ($data->status_pinjam = 'PENDING')
+                                        @if ($data->status_pinjam === 'PENDING')
                                         PENDING
-                                        @elseif ($data->status_pinjam = 'DIPINJAM')
+                                        @elseif ($data->status_pinjam === 'DIPINJAM')
                                         DIPINJAM
                                         @else
                                         DIKEMBALIKAN
