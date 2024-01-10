@@ -21,4 +21,9 @@ class Book extends Model
         'sinopsis',
         'penerbit',
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class, 'id_kategori', 'id');
+    }
 }

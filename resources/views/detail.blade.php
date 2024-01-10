@@ -36,7 +36,7 @@
                         <div class="row">
                             <div class="col-6">
                                 <h6>Kategori</h6>
-                                <p>{{ $data->id_kategori }}</p>
+                                <p>{{ $data->category->name }}</p>
                             </div>
                             <div class="col-6">
                                 <h6>Stok</h6>

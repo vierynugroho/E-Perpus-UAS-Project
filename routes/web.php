@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\{Route, Auth};
 
 
 Auth::routes(['verify' => true]);
+
 Route::middleware(['auth', 'verified'])->group(function () {
     // homepage
     Route::get('/', [HomeController::class, 'index'])->name('home');
