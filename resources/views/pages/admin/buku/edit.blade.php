@@ -16,19 +16,21 @@
 
             <div class="card-body">
                 <form method="POST"
-                      action="{{ route('daftarbuku.update', $buku->id) }}"
+                      action="{{ route('daftarbuku.update', $book->id) }}"
                       enctype="multipart/form-data">
-                    @method('put')
                     @csrf
+                    @method('PUT')
                     <div class="row">
                         <div class="col-12">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('judul')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="Judul"
                                        name="judul"
-                                       value="{{ $buku->judul }}"
+                                       value="{{ $book->judul }}"
                                        required
                                        autocomplete="judul"
                                        autofocus>
@@ -46,11 +48,13 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('penulis')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="Penulis"
                                        name="penulis"
-                                       value="{{ $buku->penulis }}"
+                                       value="{{ $book->penulis }}"
                                        required
                                        autocomplete="penulis"
                                        autofocus>
@@ -66,11 +70,13 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('penerbit')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="Penerbit"
                                        name="penerbit"
-                                       value="{{ $buku->penerbit }}"
+                                       value="{{ $book->penerbit }}"
                                        required
                                        autocomplete="penerbit"
                                        autofocus>
@@ -88,19 +94,25 @@
                     <div class="form-group row">
                         <div class="col-12">
                             <div class="form-floating">
-                                <select class="form-select"
+                                <select class="form-select @error('id_kategori')
+                                           is-invalid
+                                       @enderror"
                                         id="floatingSelect"
                                         aria-label="Kategori"
-                                        name="kategori">
+                                        name="id_kategori">
+
                                     <option selected
-                                            hidden>{{ $buku->id_kategori }}</option>
-                                    <option value="{{ $buku->id_kategori }}">Matematika</option>
-                                    <option value="2">Informatika</option>
-                                    <option value="3">Sains</option>
+                                            hidden
+                                            value="{{ $book->id_kategori }}">
+                                        {{ $book->id_kategori }}</option>
+
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                                 <label for="floatingSelect">Kategori</label>
 
-                                @error('kategori')
+                                @error('id_kategori')
                                 <span class="invalid-feedback"
                                       role="alert">
                                     <strong>{{ $message }}</strong>
@@ -114,11 +126,13 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="number"
-                                       class="form-control"
+                                       class="form-control @error('tahun')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="tahun"
                                        name="tahun"
-                                       value="{{ $buku->tahun }}"
+                                       value="{{ $book->tahun }}"
                                        required
                                        autocomplete="tahun"
                                        autofocus>
@@ -134,11 +148,13 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="number"
-                                       class="form-control"
+                                       class="form-control @error('quantity')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="stok"
                                        name="quantity"
-                                       value="{{ $buku->quantity }}"
+                                       value="{{ $book->quantity }}"
                                        required
                                        autocomplete="quantity"
                                        autofocus>
@@ -153,19 +169,30 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <div class="col-12 mb-3">
+                            <label for="sinopsis"
+                                   class="form-label @error('sinopsis')
+                                           is-invalid
+                                       @enderror">Sinopsis</label>
+                            <textarea class="form-control"
+                                      name="sinopsis"
+                                      id="ckeditor"
+                                      cols="30"
+                                      rows="10">{{ $book->sinopsis }}</textarea>
+                        </div>
                         <div class="col-12">
                             <div class="form-floating mb-3">
                                 <input type="file"
-                                       class="form-control"
+                                       class="form-control @error('cover')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="cover"
                                        name="cover"
-                                       value="{{ $buku->cover }}"
-                                       required
+                                       value="{{ old('cover') }}"
                                        autocomplete="cover"
                                        autofocus>
                                 <label for="floatingInput">Cover Buku</label>
-                                <small class="text-muted">Nama File: {{ $buku->cover }}</small>
                                 @error('cover')
                                 <span class="invalid-feedback"
                                       role="alert">
@@ -173,12 +200,14 @@
                                 </span>
                                 @enderror
                             </div>
+                            <small class="text-muted">*Jangan upload file jika cover tidak ingin diganti</small>
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-12 mx-3 mb-3 mx-auto d-flex justify-content-between ">
                             <button type="submit"
-                                    class="btn btn-primary col-7">
+                                    class="btn btn-primary col-7"><i class="fa fa-save"
+                                   aria-hidden="true"></i>
                                 Simpan
                             </button>
                             <button type="reset"
@@ -193,3 +222,13 @@
     </div>
 </div>
 @endsection
+
+@push('addOnBottomScript')
+<script>
+    ClassicEditor
+            .create(document.querySelector('#ckeditor'))
+            .catch(error => {
+                console.error(error);
+            });
+</script>
+@endpush

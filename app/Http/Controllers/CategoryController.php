@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class CategoryController extends Controller
@@ -33,7 +34,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validatedData = $request->validate([
+                'name' => 'required'
+            ]);
+
+            Category::create($validatedData);
+
+            return redirect('dashboard/kategori')->with('success', 'BERHASIL! Kategori Berhasil Ditambahkan!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/kategori')->with('error', 'GAGAL! Kategori Gagal Ditambahkan!');
+        }
     }
 
     /**
@@ -61,7 +72,21 @@ class CategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+            $category = Category::find($id);
+
+            $validatedData = $request->validate([
+                'name' => 'required'
+            ]);
+
+            $category->name = $validatedData['name'];
+
+            $category->save();
+
+            return redirect('dashboard/kategori')->with('success', 'BERHASIL! Kategori Berhasil Diubah!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/kategori')->with('error', 'GAGAL! Kategori Gagal Diubah!');
+        }
     }
 
     /**
@@ -69,6 +94,14 @@ class CategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $category = Category::find($id);
+
+            $category->delete();
+
+            return redirect('dashboard/kategori')->with('success', 'BERHASIL! Kategori Berhasil Dihapus!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/kategori')->with('error', 'GAGAL! Tersedia Buku Dalam Kategori!');
+        }
     }
 }

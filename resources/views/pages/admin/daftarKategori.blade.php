@@ -38,7 +38,7 @@
             <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Data Kategori</h6>
                 <a href="/dashboard/kategori/create"
-                   class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
+                   class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
                     Tambah Kategori</a>
             </div>
             <div class="card-body">
@@ -68,12 +68,18 @@
                                             Aksi
                                         </a>
 
-                                        {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/kategori/1/edit">Edit</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="/dashboard/kategori/1">Hapus</a></li>
+                                                   href="/dashboard/kategori/{{ $data->id }}/edit">Edit</a></li>
+                                            <li>
+                                                <form action="{{ route('kategori.destroy', $data->id) }}"
+                                                      method="POST">
+                                                    @method('DELETE')
+                                                    @csrf
+                                                    <button class="dropdown-item"
+                                                            type="submit">Hapus</button>
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                 </td>

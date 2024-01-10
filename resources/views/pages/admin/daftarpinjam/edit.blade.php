@@ -123,7 +123,8 @@
                     <div class="form-group row">
                         <div class="col-12 mx-3 mb-3 mx-auto d-flex justify-content-between ">
                             <button type="submit"
-                                    class="btn btn-primary col-7">
+                                    class="btn btn-primary col-7"><i class="fa fa-save"
+                                   aria-hidden="true"></i>
                                 Simpan
                             </button>
                             <button type="reset"

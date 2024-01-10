@@ -207,8 +207,9 @@
                     <div class="form-group row">
                         <div class="col-12 mx-3 mb-3 mx-auto d-flex justify-content-between ">
                             <button type="submit"
-                                    class="btn btn-primary col-7">
-                                Simpan
+                                    class="btn btn-primary col-7"><i class="fa fa-plus"
+                                   aria-hidden="true"></i>
+                                Tambah
                             </button>
                             <button type="reset"
                                     class="btn btn-outline-primary col-4">

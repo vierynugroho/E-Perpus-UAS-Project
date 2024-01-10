@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\Category;
 use App\Models\Pinjam;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class BukuController extends Controller
@@ -44,24 +46,26 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        // dd($request->all());
-        $validatedData = $request->validate([
-            'judul' => 'required',
-            'penulis' => 'required',
-            'penerbit' => 'required',
-            'id_kategori' => 'required',
-            'tahun' => 'required|numeric',
-            'quantity' => 'required|numeric',
-            'cover' => 'required|mimes:jpeg,png,jpg,gif,svg',
-            'sinopsis' => 'required'
-        ]);
+        try {
+            $validatedData = $request->validate([
+                'judul' => 'required',
+                'penulis' => 'required',
+                'penerbit' => 'required',
+                'id_kategori' => 'required',
+                'tahun' => 'required|numeric',
+                'quantity' => 'required|numeric',
+                'cover' => 'required|mimes:jpeg,png,jpg,gif,svg',
+                'sinopsis' => 'required'
+            ]);
 
-        $validatedData['cover'] = $request->file('cover')->store('public/cover');
+            $validatedData['cover'] = $request->file('cover')->store('public/cover');
 
-        // dd('yoho');
+            Book::create($validatedData);
 
-        Book::create($validatedData);
-        return redirect('dashboard/daftarbuku')->with('success', 'Data Berhasil Disimpan!');
+            return redirect('dashboard/daftarbuku')->with('success', 'BERHASIL! Buku Berhasil Ditambahkan!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/daftarbuku')->with('error', 'GAGAL! Buku Gagal Ditambahkan!');
+        }
     }
 
     /**
@@ -80,10 +84,12 @@ class BukuController extends Controller
      */
     public function edit(string $id)
     {
-        $buku = Book::findOrFail($id);
+        $book = Book::findOrFail($id);
+        $categories = Category::all();
 
         return view('pages.admin.buku.edit', [
-            'buku' => $buku,
+            'book' => $book,
+            'categories' => $categories
         ]);
     }
 
@@ -92,14 +98,58 @@ class BukuController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        try {
+
+            $validatedData = $request->validate([
+                'judul' => 'required',
+                'penulis' => 'required',
+                'penerbit' => 'required',
+                'id_kategori' => 'required',
+                'tahun' => 'required|numeric',
+                'quantity' => 'required|numeric',
+                'cover' => 'mimes:jpeg,png,jpg,gif,svg',
+                'sinopsis' => 'required'
+            ]);
+
+            $book = Book::findOrFail($id);
+
+            $book->judul = $validatedData['judul'];
+            $book->penulis = $validatedData['penulis'];
+            $book->penerbit = $validatedData['penerbit'];
+            $book->id_kategori = $validatedData['id_kategori'];
+            $book->tahun = $validatedData['tahun'];
+            $book->quantity = $validatedData['quantity'];
+            $book->sinopsis = $validatedData['sinopsis'];
+
+            if ($request->hasFile('cover')) {
+                Storage::delete($book->cover);
+                $cover = $request->file('cover')->store('public/cover');
+                $book->cover = $cover;
+            }
+
+            $book->save();
+            return redirect('dashboard/daftarbuku')->with('success', 'BERHASILl! Buku Berhasil Diperbarui!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/daftarbuku')->with('error', 'GAGAL! Data Gagal Diperbarui!');
+        }
     }
 
     /**
      * Remove the specified resource from storage.
      */
+
     public function destroy(string $id)
     {
-        //
+        try {
+            $book = Book::find($id);
+            if ($book->cover !== null) {
+                Storage::delete($book->cover);
+            }
+            $book->delete();
+
+            return redirect('dashboard/daftarbuku')->with('success', 'BERHASIL! Buku Berhasil Dihapus!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/daftarbuku')->with('error', 'GAGAL! Buku Sedang Dalam Transaksi!');
+        }
     }
 }

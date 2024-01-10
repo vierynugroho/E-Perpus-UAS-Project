@@ -20,7 +20,7 @@
                 <div class="card-header">
                     <h4 class="text-center">Tambah Kategori</h4>
                 </div>
-                <form action="{{url('Categories')}}"
+                <form action="{{ route('kategori.store') }}"
                       method="post"
                       enctype="multipart/form-data">
                     @csrf
@@ -29,7 +29,7 @@
                             <div class="form-group">
                                 <label for="">Nama Kategori </label>
                                 <input type="text"
-                                       name="nama"
+                                       name="name"
                                        class="form-control"
                                        placeholder='nama kategori'
                                        required>
@@ -40,7 +40,7 @@
                         <div class="col">
                             <button type="submit"
                                     class="btn btn-primary btn-block"><i class="fa fa-plus"
-                                   aria-hidden="true"></i>Tambah</button>
+                                   aria-hidden="true"></i> Tambah</button>
                         </div>
                 </form>
             </div>

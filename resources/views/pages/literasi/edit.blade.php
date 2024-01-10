@@ -95,7 +95,8 @@
                                       minlength="200"></textarea>
                         </div>
                         <button type="submit"
-                                class="btn btn-primary mt-4">Tambah</button>
+                                class="btn btn-primary mt-4"><i class="fa fa-save"
+                               aria-hidden="true"></i> Simpan</button>
                     </div>
                 </div>
             </div>

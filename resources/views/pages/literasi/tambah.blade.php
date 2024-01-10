@@ -102,7 +102,8 @@
                                           minlength="200"></textarea>
                             </div>
                             <button type="submit"
-                                    class="btn btn-primary mt-4">Tambah</button>
+                                    class="btn btn-primary mt-4"><i class="fa fa-plus"
+                                   aria-hidden="true"></i> Tambah</button>
                         </div>
                     </form>
                 </div>

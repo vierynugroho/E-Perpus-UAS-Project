@@ -20,16 +20,17 @@
                 <div class="card-header">
                     <h4 class="text-center">Edit Kategori</h4>
                 </div>
-                <form action="{{url('Categories')}}"
+                <form action="{{ route('kategori.update', $data->id) }}"
                       method="post"
                       enctype="multipart/form-data">
                     @csrf
+                    @method('PUT')
                     <div class="card-body">
                         <div class="col">
                             <div class="form-group">
                                 <label for="">Nama Kategori </label>
                                 <input type="text"
-                                       name="nama"
+                                       name="name"
                                        class="form-control"
                                        placeholder='nama kategori'
                                        value="{{ $data->name }}"
@@ -40,8 +41,8 @@
                     <div class="card-footer">
                         <div class="col">
                             <button type="submit"
-                                    class="btn btn-primary btn-block"><i class="fa fa-plus"
-                                   aria-hidden="true"></i>Simpan</button>
+                                    class="btn btn-primary btn-block"><i class="fa fa-save"
+                                   aria-hidden="true"></i> Simpan</button>
                         </div>
                 </form>
             </div>
