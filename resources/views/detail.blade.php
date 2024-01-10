@@ -5,7 +5,6 @@
     <div class="card mb-3 w-100 p-1">
         <div class="row g-0 mt-2">
             <div class="col-md-4 text-center">
-
                 <img src="{{ Storage::url($data->cover) }}"
                      class="img-fluid mx-auto "
                      alt="Cover">
@@ -48,12 +47,24 @@
                     </div>
                 </div>
                 <div class="book-action p-3 position-absolute bottom-0 w-100">
-                    @if ($data->quantity > 0)
-                    <button class="btn btn-primary d-block w-100">Pinjam</button>
-                    @else
-                    <button class="btn btn-primary d-block w-100"
-                            disabled>Pinjam</button>
-                    @endif
+                    <form action="{{ route('pinjam.store') }}"
+                          method="post"
+                          enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden"
+                               name="id_buku"
+                               value="{{ $data->id }}">
+                        <input type="hidden"
+                               name="id_user"
+                               value="{{ auth()->user()->nik }}">
+                        @if ($data->quantity > 0)
+                        <button class="btn btn-primary d-block w-100"
+                                type="submit">Pinjam</button>
+                        @else
+                        <button class="btn btn-primary d-block w-100"
+                                disabled>Pinjam</button>
+                        @endif
+                    </form>
                 </div>
             </div>
         </div>

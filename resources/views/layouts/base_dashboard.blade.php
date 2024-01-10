@@ -45,7 +45,13 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            {{-- ! USER --}}
+            {{-- ! USER ! --}}
+            @php
+            use App\Models\User;
+            $user = User::where('nik', auth()->user()->nik)->get();
+            @endphp
+
+            @if (!$user[0]->is_admin)
             <!-- Heading -->
             <div class="sidebar-heading">
                 Your Library
@@ -93,7 +99,10 @@
                 Administrator
             </div>
 
-            {{-- !ADMIN --}}
+            {{-- ! END USER ! --}}
+
+            {{-- ! ADMIN ! --}}
+            @else
             <!-- Nav Item - Daftar Buku -->
             <li class="nav-item {{ Request::is('dashboard/daftarbuku*') ? 'active' : '' }}">
                 <a class="nav-link"
@@ -142,6 +151,8 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+            {{-- ! END ADMIN ! --}}
+            @endif
 
             <!-- Heading -->
             <div class="sidebar-heading">

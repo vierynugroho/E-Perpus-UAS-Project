@@ -78,7 +78,7 @@
                             <tr>
                                 <td>{{$i++}}</td>
                                 <td>{{ $data->id_user }}</td>
-                                <td>{{ $data->id_buku }}</td>
+                                <td>{{ $data->book->judul }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>
                                     @if ($data->status_pinjam === 'PENDING')
@@ -104,9 +104,15 @@
                                                    href="/dashboard/daftarpinjam/{{ $data->id }}/edit"><i
                                                        class="fas fa-pen fa-sm text-primary"></i> Edit</a>
                                             </li>
-                                            <li><a class="dropdown-item"
-                                                   href="/dashboard/daftarpinjam/{{ $data->id }}"><i
-                                                       class="fas fa-trash fa-sm text-primary"></i> Hapus</a></li>
+                                            <li>
+                                                <form action="{{ route('daftarpinjam.destroy', $data->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                            class="dropdown-item"><i
+                                                           class="fas fa-trash fa-sm text-primary"></i> Hapus</button>
+                                                </form>
                                         </ul>
                                     </div>
                                 </td>

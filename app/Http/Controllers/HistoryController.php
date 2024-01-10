@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pinjam;
+use Illuminate\Database\QueryException;
 use Illuminate\Http\Request;
 
 class HistoryController extends Controller
@@ -13,10 +14,13 @@ class HistoryController extends Controller
     public function index()
     {
         $datas = Pinjam::where('id_user', auth()->user()->nik)->whereIn('status_pinjam', ['DIKEMBALIKAN'])->get();
-        $count_dipinjam = Pinjam::where('id_user', auth()->user()->nik)->count();
+        // user information
+        $count_pinjam_user = Pinjam::where('id_user', auth()->user()->nik)
+            ->whereIn('status_pinjam', ['DIKEMBALIKAN'])
+            ->count();
         return view('pages.history', [
             'datas' => $datas,
-            'count_dipinjam' => $count_dipinjam
+            'count_pinjam_user' => $count_pinjam_user
         ]);
     }
 
@@ -41,7 +45,11 @@ class HistoryController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Pinjam::findOrFail($id);
+
+        return view('pages.pinjam.detail', [
+            'data' => $data
+        ]);
     }
 
     /**
@@ -65,6 +73,14 @@ class HistoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $historyPinjam = Pinjam::find($id);
+
+            $historyPinjam->delete();
+
+            return redirect('dashboard/history')->with('success', 'BERHASIL! Literasi Berhasil Dihapus!');
+        } catch (QueryException $e) {
+            return redirect('dashboard/history')->with('error', 'GAGAL! Literasi Gagal Dihapus!');
+        }
     }
 }

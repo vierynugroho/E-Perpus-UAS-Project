@@ -35,7 +35,7 @@
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 bg-primary text-bg-primary">
-                <h6 class="m-0 font-weight-bold">Data Buku</h6>
+                <h6 class="m-0 font-weight-bold">Data Buku Dipinjam</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -48,6 +48,7 @@
                             <th>Penerbit</th>
                             <th>Tanggal Pinjam</th>
                             <th>Status</th>
+                            <th>Aksi</th>
                         </thead>
                         <tbody>
                             @php
@@ -68,6 +69,38 @@
                                     @else
                                     <p class="badge text-bg-success bg-success p-2">DIKEMBALIKAN</p>
                                     @endif
+                                </td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-outline-primary dropdown-toggle"
+                                           href="#"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            Aksi
+                                        </a>
+
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"
+                                                   href="/dashboard/pinjam/{{ $data->id }}"><i
+                                                       class="fas fa-eye fa-sm text-primary"></i> Detail</a>
+                                            </li>
+                                            @if (!$data->status_pinjam === 'DIPINJAM')
+                                            <li>
+                                                <form action="{{ route('pinjam.destroy', $data->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                            class="dropdown-item"><i
+                                                           class="fas fa-trash fa-sm text-primary"></i> Hapus</button>
+                                                </form>
+                                            </li>
+                                            @else
+                                            {{-- nothing delete action --}}
+                                            @endif
+                                        </ul>
+                                    </div>
                                 </td>
                             </tr>
                             @endforeach

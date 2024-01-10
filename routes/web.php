@@ -29,16 +29,18 @@ Route::middleware(['auth', 'verified'])->group(function () {
 
     // Dashboard
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
-    Route::resource('/dashboard/pinjam', PinjamController::class);
-    Route::resource('/dashboard/history', HistoryController::class);
-    Route::resource('/dashboard/literasi', LiterasiController::class);
     Route::resource('/dashboard/leaderboard', RankController::class);
     Route::resource('/dashboard/settings', UserController::class);
 
+    // user
+    Route::resource('/dashboard/pinjam', PinjamController::class);
+    Route::resource('/dashboard/history', HistoryController::class);
+    Route::resource('/dashboard/literasi', LiterasiController::class);
+
     // admin
-    Route::resource('/dashboard/daftarbuku', BukuController::class);
-    Route::resource('/dashboard/daftarpinjam', DaftarPinjamController::class);
-    Route::resource('/dashboard/daftarhistoripinjam', DaftarHistoryPinjamController::class);
-    Route::resource('/dashboard/kategori', CategoryController::class);
-    Route::resource('/dashboard/daftarliterasi', DaftarLiterasiController::class);
+    Route::resource('/dashboard/daftarbuku', BukuController::class)->middleware('is_admin');
+    Route::resource('/dashboard/daftarpinjam', DaftarPinjamController::class)->middleware('is_admin');
+    Route::resource('/dashboard/daftarhistoripinjam', DaftarHistoryPinjamController::class)->middleware('is_admin');
+    Route::resource('/dashboard/kategori', CategoryController::class)->middleware('is_admin');
+    Route::resource('/dashboard/daftarliterasi', DaftarLiterasiController::class)->middleware('is_admin');
 });

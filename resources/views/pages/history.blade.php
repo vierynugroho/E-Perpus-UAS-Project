@@ -18,8 +18,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                            Buku Dipinjam</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_dipinjam }} Buku</div>
+                            Buku Dikembalikan</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $count_pinjam_user }} Buku</div>
                     </div>
                     <div class="col-auto">
                         <i class="fas fa-book fa-2x text-gray-300"></i>
@@ -37,7 +37,7 @@
         <!-- Project Card Example -->
         <div class="card shadow mb-4">
             <div class="card-header py-3 text-bg-primary bg-primary">
-                <h6 class="m-0 font-weight-bold">Data Buku</h6>
+                <h6 class="m-0 font-weight-bold">Data Buku Dipinjam</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -48,7 +48,8 @@
                             <th>Judul Buku</th>
                             <th>Status</th>
                             <th>Tanggal Pinjam</th>
-                            <th>Tanggal Kembali</th>
+                            <th>Tanggal Transaksi Akhir</th>
+                            <th>Aksi</th>
                         </thead>
                         <tbody>
                             @php
@@ -68,6 +69,34 @@
                                 </td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>{{ $data->updated_at }}</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <a class="btn btn-outline-primary dropdown-toggle"
+                                           href="#"
+                                           role="button"
+                                           data-bs-toggle="dropdown"
+                                           aria-expanded="false">
+                                            Aksi
+                                        </a>
+
+                                        <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"
+                                                   href="/dashboard/history/{{ $data->id }}"><i
+                                                       class="fas fa-eye fa-sm text-primary"></i> Detail</a>
+                                            </li>
+                                            <li>
+                                                <form action="{{ route('history.destroy', $data->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                            class="dropdown-item"><i
+                                                           class="fas fa-trash fa-sm text-primary"></i> Hapus</button>
+                                                </form>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </td>
                             </tr>
                             @endforeach
                         </tbody>

@@ -45,6 +45,7 @@
         @endif
 
         @yield('content')
+        @yield('footer_content')
 
         {{-- ! SCRIPT AREA ! --}}
         <!-- Bootstrap JavaScript Libraries -->

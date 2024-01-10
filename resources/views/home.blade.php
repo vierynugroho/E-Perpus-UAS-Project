@@ -96,15 +96,42 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     @endforeach
                 </div>
+                {{ $datas->links('pagination::bootstrap-5') }}
             </div>
 
         </div>
     </div>
 </div>
+
+@endsection
+
+@section('footer_content')
+<footer class="mt-3 shadow">
+    <div class="row w-100">
+        <div class="px-5 col-4 d-flex justify-content-start flex-column">
+            <img src="{{ asset('images/logo.jpg') }}"
+                 alt="logo unisba"
+                 class="img-fluid w-25">
+            <br>
+            <h3>Universitas Islam Balitar</h3>
+            <p>Jl. Majapahit No.2- 4, Sananwetan, Kec. Sananwetan, Kota Blitar, Jawa Timur 66137</p>
+        </div>
+        <div class="px-5 col-4 d-flex justify-content-center align-items-center flex-column">
+            <h3>E-Perpus UNISBA</h3>
+            <p>Kelompok 2 - TI 5B</p>
+        </div>
+        <div class="px-5 col-4 d-flex justify-content-end flex-column align-items-end">
+            <h3>Informatika 5B</h3>
+            <p>Viery Nugroho - 21104410049</p>
+            <p>Batara Mahardika A. - 21104410063</p>
+            <p>Nurul Mushtofa Thohir. - 21104410095</p>
+            <p>Muhammad Yusuf I.R. - 21104410079</p>
+        </div>
+    </div>
+</footer>
 
 @endsection
