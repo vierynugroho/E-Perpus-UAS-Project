@@ -31,7 +31,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
     Route::resource('/dashboard/leaderboard', RankController::class);
     Route::resource('/dashboard/settings', UserController::class);
+});
 
+Route::middleware(['auth', 'verified', 'is_user'])->group(function () {
     // user
     Route::resource('/dashboard/pinjam', PinjamController::class);
     Route::resource('/dashboard/history', HistoryController::class);
