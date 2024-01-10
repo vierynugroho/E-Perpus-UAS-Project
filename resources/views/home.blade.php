@@ -27,7 +27,7 @@
                         </form>
                     </div>
                 </div>
-                <div class=" container shadow kategori-content row mt-4">
+                <div class="container shadow kategori-content row mt-4">
                     <div class="row">
                         <div class="col-12">
                             <h4 class="fw-bold">KATEGORI</h4>
@@ -38,12 +38,12 @@
                     </div>
                     <div class="row d-flex flex-nowrap overflow-auto">
                         @forelse ($categories as $category)
-                        <div class="col-6 col-md-2">
+                        <div class="col-6 col-md-3">
                             <a href="/homebycategory/{{ $category->id }}"
                                class="text-decoration-none">
                                 <div class="card shadow rounded mb-3">
                                     <div class="card-body mx-auto">
-                                        <h5>{{ $category->name }}</h5>
+                                        <h6>{{ $category->name }}</h6>
                                     </div>
                                 </div>
                             </a>
