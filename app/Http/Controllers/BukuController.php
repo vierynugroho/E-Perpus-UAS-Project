@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\Category;
 use App\Models\Pinjam;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class BukuController extends Controller
 {
@@ -30,7 +32,11 @@ class BukuController extends Controller
      */
     public function create()
     {
-        return view('pages.admin.buku.tambah');
+        $categories = Category::all();
+
+        return view('pages.admin.buku.tambah', [
+            'categories' => $categories
+        ]);
     }
 
     /**
@@ -38,7 +44,24 @@ class BukuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // dd($request->all());
+        $validatedData = $request->validate([
+            'judul' => 'required',
+            'penulis' => 'required',
+            'penerbit' => 'required',
+            'id_kategori' => 'required',
+            'tahun' => 'required|numeric',
+            'quantity' => 'required|numeric',
+            'cover' => 'required|mimes:jpeg,png,jpg,gif,svg',
+            'sinopsis' => 'required'
+        ]);
+
+        $validatedData['cover'] = $request->file('cover')->store('/image/cover');
+
+        // dd('yoho');
+
+        Book::create($validatedData);
+        return redirect('dashboard/daftarbuku')->with('success', 'Data Berhasil Disimpan!');
     }
 
     /**

@@ -23,7 +23,9 @@
                         <div class="col-12">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('judul')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="Judul"
                                        name="judul"
@@ -45,7 +47,9 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('penulis')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="Penulis"
                                        name="penulis"
@@ -65,7 +69,9 @@
                         <div class="col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control"
+                                       class="form-control @error('penerbit')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="Penerbit"
                                        name="penerbit"
@@ -87,19 +93,27 @@
                     <div class="form-group row">
                         <div class="col-12">
                             <div class="form-floating">
-                                <select class="form-select"
+                                <select class="form-select @error('id_kategori')
+                                           is-invalid
+                                       @enderror"
                                         id="floatingSelect"
                                         aria-label="Kategori"
-                                        name="kategori">
+                                        name="id_kategori">
+                                    @if (old('id_kategori'))
+                                    <option selected
+                                            hidden
+                                            value="{{ old('id_kategori') }}">{{ old('id_kategori') }}</option>
+                                    @else
                                     <option selected
                                             hidden>- Kategori Buku -</option>
-                                    <option value="1">Matematika</option>
-                                    <option value="2">Informatika</option>
-                                    <option value="3">Sains</option>
+                                    @endif
+                                    @foreach ($categories as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                    @endforeach
                                 </select>
                                 <label for="floatingSelect">Kategori</label>
 
-                                @error('kategori')
+                                @error('id_kategori')
                                 <span class="invalid-feedback"
                                       role="alert">
                                     <strong>{{ $message }}</strong>
@@ -113,7 +127,9 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="number"
-                                       class="form-control"
+                                       class="form-control @error('tahun')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="tahun"
                                        name="tahun"
@@ -133,7 +149,9 @@
                         <div class="col-12 col-md-6">
                             <div class="form-floating mb-3">
                                 <input type="number"
-                                       class="form-control"
+                                       class="form-control @error('quantity')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="stok"
                                        name="quantity"
@@ -152,10 +170,23 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <div class="col-12 mb-3">
+                            <label for="sinopsis"
+                                   class="form-label @error('sinopsis')
+                                           is-invalid
+                                       @enderror">Sinopsis</label>
+                            <textarea class="form-control"
+                                      name="sinopsis"
+                                      id="ckeditor"
+                                      cols="30"
+                                      rows="10">{{ old('sinopsis') }}</textarea>
+                        </div>
                         <div class="col-12">
                             <div class="form-floating mb-3">
                                 <input type="file"
-                                       class="form-control"
+                                       class="form-control @error('cover')
+                                           is-invalid
+                                       @enderror"
                                        id="floatingInput"
                                        placeholder="cover"
                                        name="cover"
@@ -191,3 +222,13 @@
     </div>
 </div>
 @endsection
+
+@push('addOnBottomScript')
+<script>
+    ClassicEditor
+        .create( document.querySelector( '#ckeditor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+@endpush

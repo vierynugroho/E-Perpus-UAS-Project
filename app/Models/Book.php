@@ -10,4 +10,15 @@ class Book extends Model
     use HasFactory;
 
     protected $table = 'books';
+
+    protected $fillable = [
+        'judul',
+        'penulis',
+        'id_kategori',
+        'tahun',
+        'quantity',
+        'cover',
+        'sinopsis',
+        'penerbit',
+    ];
 }
