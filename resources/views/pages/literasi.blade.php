@@ -108,7 +108,7 @@
             <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Data Literasi</h6>
                 <a href="/dashboard/literasi/create"
-                   class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
+                   class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-plus fa-sm text-white-50"></i>
                     Tambah Literasi</a>
             </div>
             <div class="card-body">

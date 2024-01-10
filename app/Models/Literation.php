@@ -15,4 +15,8 @@ class Literation extends Model
     {
         return $this->belongsTo(User::class, 'id_user', 'nik');
     }
+    public function book()
+    {
+        return $this->belongsTo(Book::class, 'id_buku', 'id');
+    }
 }

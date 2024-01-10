@@ -12,7 +12,7 @@
 <div class="row w-100">
     <div class="col-10 mx-auto">
         <div class="card shadow">
-            <div class="card-header">{{ __('Pengaturan Akun') }}</div>
+            <div class="card-header bg-primary text-bg-primary">{{ __('Pengaturan Akun') }}</div>
             <div class="card-body">
                 <form action="/dashboard/settings/{{ auth()->user()->nik }}"
                       method="post"

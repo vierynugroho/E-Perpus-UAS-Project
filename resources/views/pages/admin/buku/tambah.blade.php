@@ -12,7 +12,7 @@
 <div class="row w-100">
     <div class="col-10 mx-auto">
         <div class="card shadow">
-            <div class="card-header">{{ __('Input Buku') }}</div>
+            <div class="card-header bg-primary text-bg-primary">{{ __('Input Buku') }}</div>
 
             <div class="card-body">
                 <form method="POST"
@@ -158,7 +158,8 @@
                                        value="{{ old('quantity') }}"
                                        required
                                        autocomplete="quantity"
-                                       autofocus>
+                                       autofocus
+                                       min="0">
                                 <label for="floatingInput">stok</label>
                                 @error('quantity')
                                 <span class="invalid-feedback"

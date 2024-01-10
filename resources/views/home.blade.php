@@ -84,7 +84,7 @@
                                 </div>
                                 <div class="col-12 m-2">
                                     @if ($data->quantity > 0)
-                                    <h6>Stock: <span>{{ $data->quantity }}</span></h6>
+                                    <h6 class="fw-bold">Stock: <span>{{ $data->quantity }}</span></h6>
                                     @else
                                     <h6 class="text-danger fw-bold text-center">TIDAK TERSEDIA</h6>
                                     @endif

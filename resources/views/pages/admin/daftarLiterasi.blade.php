@@ -108,20 +108,16 @@
         <div class="card shadow mb-4">
             <div class="card-header py-3 d-sm-flex align-items-center justify-content-between">
                 <h6 class="m-0 font-weight-bold text-primary">Data Literasi</h6>
-                <a href="/dashboard/perpustakaan/create"
-                   class="btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i>
-                    Tambah Literasi</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table display"
                            id="dataTable">
-                        <p class="text-danger fw-bold">ini belum fix datanya - CRUD AJA DULU</p>
                         <thead>
                             <th>No</th>
                             <th>Nama</th>
                             <th>Judul Literasi</th>
-                            <th>Total Literasi</th>
+                            <th>Halaman Literasi</th>
                             <th>Aksi</th>
                         </thead>
                         <tbody>
@@ -131,9 +127,9 @@
                             @foreach ($datas as $data)
                             <tr>
                                 <td>{{ $i++ }}</td>
+                                <td>{{ $data->user->name }}</td>
                                 <td>{{ $data->judul }}</td>
                                 <td>{{ $data->halaman }}</td>
-                                <td>{{ $data->created_at }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-outline-primary dropdown-toggle"
@@ -144,12 +140,18 @@
                                             Aksi
                                         </a>
 
-                                        {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
                                         <ul class="dropdown-menu">
                                             <li><a class="dropdown-item"
-                                                   href="/dashboard/literasi/{{ $data->id }}">Detail</a></li>
-                                            <li><a class="dropdown-item"
-                                                   href="/dashboard/literasi/{{ $data->id }}">Hapus</a></li>
+                                                   href="/dashboard/daftarliterasi/{{ $data->id }}">Detail</a></li>
+                                            <li>
+                                                <form action="{{ route('daftarliterasi.destroy', $data->id) }}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit"
+                                                            class="dropdown-item">Hapus</button>
+                                                </form>
+                                            </li>
                                         </ul>
                                     </div>
                                 </td>
