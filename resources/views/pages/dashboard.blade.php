@@ -193,7 +193,7 @@
                                 <p class="text-center">{{ $i++ }}</p>
                             </div>
                             <div class="col-8">
-                                <p class="text-center">{{ $leaderboard->id_user }}</p>
+                                <p class="text-center">{{ $leaderboard->user->name }}</p>
                             </div>
                             <div class="col-2">
                                 <p class="text-center">{{ $leaderboard->jumlah_literasi }}</p>

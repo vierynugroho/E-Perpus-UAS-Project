@@ -10,4 +10,9 @@ class Literation extends Model
     use HasFactory;
 
     protected $table = 'literations';
+
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user', 'nik');
+    }
 }

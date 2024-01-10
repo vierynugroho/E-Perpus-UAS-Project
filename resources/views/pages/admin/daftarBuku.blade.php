@@ -84,7 +84,7 @@
                             <tr>
                                 <td>{{ $i++ }}</th>
                                 <td>{{ $data->judul }}</td>
-                                <td>{{ $data->id_kategori }}</td>
+                                <td>{{ $data->category->name }}</td>
                                 <td>{{ $data->penulis }}</td>
                                 <td>{{ $data->penerbit }}</td>
                                 <td>{{ $data->tahun }}</td>
@@ -101,6 +101,8 @@
 
                                         {{-- ! NDELOK O TUTOR PAK SAIFUL BG NGGE HREF kro CRUD e --}}
                                         <ul class="dropdown-menu">
+                                            <li><a class="dropdown-item"
+                                                   href="/dashboard/daftarbuku/{{ $data->id }}">Detail</a></li>
                                             <li><a class="dropdown-item"
                                                    href="/dashboard/daftarbuku/{{ $data->id }}/edit">Edit</a></li>
                                             <li><a class="dropdown-item"

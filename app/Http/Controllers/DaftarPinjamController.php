@@ -12,8 +12,8 @@ class DaftarPinjamController extends Controller
      */
     public function index()
     {
-        $datas = Pinjam::all();
-        $count_dipinjam = Pinjam::whereIn('status_pinjam', ['PENDING', 'DIPINJAM'])
+        $datas = Pinjam::where('status_pinjam', ['PENDING', 'DIPINJAM'])->get();
+        $count_dipinjam = Pinjam::where('status_pinjam', ['PENDING', 'DIPINJAM'])
             ->count();
         $count_peminjam = Pinjam::distinct('id_user')->count('id_user');
         return view('pages.admin.daftarpinjam', [

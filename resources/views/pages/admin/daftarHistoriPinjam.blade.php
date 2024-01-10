@@ -99,9 +99,9 @@
                                 <td>{{ $data->id_buku }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>
-                                    @if ($data->status_pinjam = 'PENDING')
+                                    @if ($data->status_pinjam === 'PENDING')
                                     <p class="badge text-bg-warning bg-warning p-2">PENDING</p>
-                                    @elseif ($data->status_pinjam = 'DIPINJAM')
+                                    @elseif ($data->status_pinjam === 'DIPINJAM')
                                     <p class="badge text-bg-warning bg-info p-2">DIPINJAM</p>
                                     @else
                                     <p class="badge text-bg-warning bg-success p-2">DIKEMBALIKAN</p>

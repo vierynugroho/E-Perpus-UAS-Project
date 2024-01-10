@@ -69,7 +69,10 @@ class BukuController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = Book::findOrFail($id);
+        return view('pages.admin.buku.detail', [
+            'data' => $data
+        ]);
     }
 
     /**
