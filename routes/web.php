@@ -36,11 +36,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::resource('/dashboard/pinjam', PinjamController::class);
     Route::resource('/dashboard/history', HistoryController::class);
     Route::resource('/dashboard/literasi', LiterasiController::class);
+});
 
+Route::middleware(['auth', 'verified', 'is_admin'])->group(function () {
     // admin
-    Route::resource('/dashboard/daftarbuku', BukuController::class)->middleware('is_admin');
-    Route::resource('/dashboard/daftarpinjam', DaftarPinjamController::class)->middleware('is_admin');
-    Route::resource('/dashboard/daftarhistoripinjam', DaftarHistoryPinjamController::class)->middleware('is_admin');
-    Route::resource('/dashboard/kategori', CategoryController::class)->middleware('is_admin');
-    Route::resource('/dashboard/daftarliterasi', DaftarLiterasiController::class)->middleware('is_admin');
+    Route::resource('/dashboard/daftarbuku', BukuController::class);
+    Route::resource('/dashboard/daftarpinjam', DaftarPinjamController::class);
+    Route::resource('/dashboard/daftarhistoripinjam', DaftarHistoryPinjamController::class);
+    Route::resource('/dashboard/kategori', CategoryController::class);
+    Route::resource('/dashboard/daftarliterasi', DaftarLiterasiController::class);
 });

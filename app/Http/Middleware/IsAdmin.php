@@ -19,6 +19,6 @@ class IsAdmin
             return $next($request);
         }
 
-        return redirect('/');
+        return back()->with('error', 'Mau Ngapain Paduka? Sengaja Ya Bikin Aku Marah?😠😡');
     }
 }
