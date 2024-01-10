@@ -5,7 +5,8 @@
     <div class="card mb-3 w-100 p-1">
         <div class="row g-0 mt-2">
             <div class="col-md-4 text-center">
-                <img src="https://berita.99.co/wp-content/uploads/2022/08/Contoh-Cover-Buku-Noverl-Simple-yang-Populer.jpg"
+
+                <img src="{{ Storage::url($data->cover) }}"
                      class="img-fluid mx-auto "
                      alt="Cover">
 

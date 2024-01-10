@@ -56,7 +56,7 @@ class BukuController extends Controller
             'sinopsis' => 'required'
         ]);
 
-        $validatedData['cover'] = $request->file('cover')->store('/image/cover');
+        $validatedData['cover'] = $request->file('cover')->store('public/cover');
 
         // dd('yoho');
 
