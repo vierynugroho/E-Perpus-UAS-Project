@@ -22,23 +22,25 @@
                       action="{{ route('literasi.store') }}"
                       enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group row">
+                    <div class="row">
                         <div class="col-12 mb-3">
-                            <div class="form-floating">
-                                <select class="form-select @error('id_buku')
+                            <div class="input-group">
+                                <label for="id_label_single"
+                                       class="w-100">
+                                    Judul Buku
+                                    <select class="js-example-basic-single form-select @error('id_buku')
                                     is-invalid
                                 @enderror"
-                                        id="floatingSelect"
-                                        aria-label="Judul Buku"
-                                        name="id_buku"
-                                        required>
-                                    <option selected
-                                            hidden>- Judul Buku Buku -</option>
-                                    @foreach ($books as $book)
-                                    <option value="{{ $book->id }}">{{ $book->judul }}</option>
-                                    @endforeach
-                                </select>
-                                <label for="floatingSelect">Judul Buku</label>
+                                            id="inputGroupSelect"
+                                            name="id_buku"
+                                            required
+                                            style="width: 100%">
+                                        @foreach ($books as $book)
+                                        <option value="{{ $book->id }}">{{ $book->judul }}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
+
                                 @error('id_buku')
                                 <span class="invalid-feedback"
                                       role="alert">
@@ -122,15 +124,25 @@
             </div>
         </div>
     </div>
-    </form>
-    @endsection
+</div>
+@endsection
 
-    @push('addOnBottomScript')
-    <script>
-        ClassicEditor
+@push('addOnBottomScript')
+{{-- CKEditor --}}
+<script>
+    ClassicEditor
         .create( document.querySelector( '#ckeditor' ) )
         .catch( error => {
             console.error( error );
         } );
-    </script>
-    @endpush
+</script>
+
+{{-- SELECT 2 --}}
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+            width: 'resolve'
+        });
+    });
+</script>
+@endpush

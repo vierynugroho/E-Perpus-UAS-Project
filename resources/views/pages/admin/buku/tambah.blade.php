@@ -90,28 +90,24 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="row">
                         <div class="col-12">
-                            <div class="form-floating">
-                                <select class="form-select @error('id_kategori')
+                            <div class="input-group">
+                                <label for="id_label_single"
+                                       class="w-100">
+                                    Kategori Buku
+                                    <select class="js-example-basic-single form-control @error('id_kategori')
                                            is-invalid
                                        @enderror"
-                                        id="floatingSelect"
-                                        aria-label="Kategori"
-                                        name="id_kategori">
-                                    @if (old('id_kategori'))
-                                    <option selected
-                                            hidden
-                                            value="{{ old('id_kategori') }}">{{ old('id_kategori') }}</option>
-                                    @else
-                                    <option selected
-                                            hidden>- Kategori Buku -</option>
-                                    @endif
-                                    @foreach ($categories as $category)
-                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
-                                    @endforeach
-                                </select>
-                                <label for="floatingSelect">Kategori</label>
+                                            id="inputGroupSelect"
+                                            aria-label="Kategori"
+                                            name="id_kategori"
+                                            style="width: 100%">
+                                        @foreach ($categories as $category)
+                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        @endforeach
+                                    </select>
+                                </label>
 
                                 @error('id_kategori')
                                 <span class="invalid-feedback"
@@ -232,5 +228,14 @@
         .catch( error => {
             console.error( error );
         } );
+</script>
+
+{{-- SELECT 2 --}}
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+            width: 'resolve'
+        });
+    });
 </script>
 @endpush

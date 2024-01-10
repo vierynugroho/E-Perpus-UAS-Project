@@ -140,7 +140,7 @@
                                                    href="/dashboard/literasi/{{ $data->id }}/edit"><i
                                                        class="fas fa-pen fa-sm text-primary"></i> Edit</a></li>
                                             <li>
-                                                 <form action="{{ route('literasi.destroy', $data->id) }}"
+                                                <form action="{{ route('literasi.destroy', $data->id) }}"
                                                       method="post">
                                                     @csrf
                                                     @method('DELETE')

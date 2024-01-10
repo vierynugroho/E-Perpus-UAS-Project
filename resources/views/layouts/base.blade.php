@@ -20,6 +20,9 @@
         <link href="https://fonts.bunny.net/css?family=Nunito"
               rel="stylesheet">
 
+        {{-- JQuery --}}
+        <script src="{{ asset('DataTables/jQuery-3.7.0/jquery-3.7.0.min.js') }}"></script>
+
         <!-- Scripts -->
         @viteReactRefresh
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -29,6 +32,11 @@
               rel="stylesheet"
               integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
               crossorigin="anonymous" />
+
+        {{-- SELECT2 --}}
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+              rel="stylesheet" />
+        <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
         {{-- Datatables --}}
         <link rel="stylesheet"
@@ -57,13 +65,10 @@
                 integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
                 crossorigin="anonymous"></script>
 
-        {{-- JQuery --}}
-        <script src="{{ asset('DataTables/jQuery-3.7.0/jquery-3.7.0.min.js') }}"></script>
 
         {{-- Datatables --}}
         <script src="{{ asset('DataTables/DataTables-1.13.8/js/jquery.dataTables.min.js') }}"></script>
         <script src="{{asset('DataTables/DataTables-1.13.8/js/dataTables.bootstrap5.min.js')}}"></script>
-
         {{-- DataTable Config --}}
         <script>
             $(document).ready(function() {
