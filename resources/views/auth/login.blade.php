@@ -6,7 +6,10 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-primary text-bg-primary">{{ __('Login') }}</div>
-
+                <div class="card-body hero">
+                    <p class="py-5"></p>
+                    <p class="py-5"></p>
+                </div>
                 <div class="card-body">
                     <form method="POST"
                           action="{{ route('login') }}">

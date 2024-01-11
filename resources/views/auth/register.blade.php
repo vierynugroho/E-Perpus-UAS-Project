@@ -6,126 +6,142 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header bg-primary text-bg-primary">{{ __('Register') }}</div>
-
+                <div class="card-body hero">
+                    <p class="py-5"></p>
+                    <p class="py-5"></p>
+                </div>
                 <div class="card-body">
                     <form method="POST"
                           action="{{ route('register') }}">
                         @csrf
                         <div class="row mb-3">
-                            <label for="name"
-                                   class="col-md-4 col-form-label text-md-end">{{ __('NIK') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="nik"
-                                       type="text"
-                                       class="form-control @error('nik') is-invalid @enderror"
-                                       name="nik"
-                                       value="{{ old('nik') }}"
-                                       required
-                                       autocomplete="nik"
-                                       autofocus>
-
-                                @error('nik')
-                                <span class="invalid-feedback"
-                                      role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                           class="form-control @error('nik')
+                                        is-invalid
+                                        @enderror"
+                                           id="floatingInput"
+                                           placeholder="NIK"
+                                           name="nik"
+                                           value="{{ old('nik') }}"
+                                           required
+                                           autocomplete="nik"
+                                           autofocus>
+                                    <label for="floatingInput">NIK</label>
+                                    @error('nik')
+                                    <span class="invalid-feedback"
+                                          role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="text"
+                                           class="form-control @error('name')
+                                           is-invalid
+                                       @enderror"
+                                           id="floatingInput"
+                                           placeholder="Nama Lengkap"
+                                           name="name"
+                                           value="{{ old('name') }}"
+                                           required
+                                           autocomplete="name"
+                                           autofocus>
+                                    <label for="floatingInput">Nama Lengkap</label>
+                                    @error('name')
+                                    <span class="invalid-feedback"
+                                          role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="name"
-                                   class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name"
-                                       type="text"
-                                       class="form-control @error('name') is-invalid @enderror"
-                                       name="name"
-                                       value="{{ old('name') }}"
-                                       required
-                                       autocomplete="name"
-                                       autofocus>
-
-                                @error('name')
-                                <span class="invalid-feedback"
-                                      role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <div class="col-8">
+                                <div class="form-floating mb-3">
+                                    <input type="email"
+                                           class="form-control @error('email')
+                                            is-invalid
+                                            @enderror"
+                                           id="floatingInput"
+                                           placeholder="Email"
+                                           name="email"
+                                           value="{{ old('email') }}"
+                                           required
+                                           autocomplete="email"
+                                           autofocus>
+                                    <label for="floatingInput">Email</label>
+                                    @error('email')
+                                    <span class="invalid-feedback"
+                                          role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="form-floating">
+                                    <select class="form-select"
+                                            id="floatingSelect"
+                                            name="is_admin">
+                                        <option selected
+                                                value="0">User</option>
+                                        <option value="1">Admin</option>
+                                    </select>
+                                    <label for="floatingSelect">Role</label>
+                                </div>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="email"
-                                   class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email"
-                                       type="email"
-                                       class="form-control @error('email') is-invalid @enderror"
-                                       name="email"
-                                       value="{{ old('email') }}"
-                                       required
-                                       autocomplete="email">
-
-                                @error('email')
-                                <span class="invalid-feedback"
-                                      role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="password"
+                                           class="form-control @error('password')
+                                        is-invalid
+                                        @enderror"
+                                           id="floatingInput"
+                                           placeholder="password"
+                                           name="password"
+                                           value="{{ old('password') }}"
+                                           required
+                                           autocomplete="password"
+                                           autofocus>
+                                    <label for="floatingInput">Password</label>
+                                    @error('password')
+                                    <span class="invalid-feedback"
+                                          role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password"
-                                   class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password"
-                                       type="password"
-                                       class="form-control @error('password') is-invalid @enderror"
-                                       name="password"
-                                       required
-                                       autocomplete="new-password">
-
-                                @error('password')
-                                <span class="invalid-feedback"
-                                      role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="is_admin"
-                                   class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
-                            <div class="col-md-6">
-                                <select class="form-select"
-                                        name="is_admin"
-                                        id="is_admin">
-                                    <option selected
-                                            value="0">User</option>
-                                    <option value="1">Admin</option>
-                                </select>
-                            </div>
-                        </div>
-
-
-                        <div class="row mb-3">
-                            <label for="password-confirm"
-                                   class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm"
-                                       type="password"
-                                       class="form-control"
-                                       name="password_confirmation"
-                                       required
-                                       autocomplete="new-password">
+                            <div class="col-6">
+                                <div class="form-floating mb-3">
+                                    <input type="password"
+                                           class="form-control @error('password_confirmation')
+                                        is-invalid
+                                        @enderror"
+                                           id="pw"
+                                           placeholder="password_confirmation"
+                                           name="password_confirmation"
+                                           value="{{ old('password_confirmation') }}"
+                                           required
+                                           autocomplete="password_confirmation"
+                                           autofocus>
+                                    <label for="pw">Password Confirmation</label>
+                                    @error('password_confirmation')
+                                    <span class="invalid-feedback"
+                                          role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
                             </div>
                         </div>
 
@@ -142,5 +158,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
