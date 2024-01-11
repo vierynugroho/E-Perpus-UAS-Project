@@ -76,7 +76,6 @@
 
                                 <div class="col-6">
                                     <div class="book-detail">
-
                                         <h6 class="fw-bold">{{ $data->judul }}</h6>
                                         <hr>
                                         <p><span class="fw-bold">Penulis: </span> {{ $data->penulis }}</p>
