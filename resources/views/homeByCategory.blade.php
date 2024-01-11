@@ -4,84 +4,84 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="row">
-
-            <div class="row p-5 rounded mx-auto shadow hero">
-                <div class="col-8 col-sm-12 mx-auto my-5 w-100">
-                    <form class="d-flex"
-                          role="search"
-                          @if($cari_buku===null)
-                          action='{{ route('homeByCategory', $category->id) }}'
-                          @else
-                          action='{{ route('cari_buku_perkategori', [$category->id, $cari_buku]) }}'
-                          @endif
-                          method="GET">
-                        @csrf
-                        <input class="form-control me-2"
-                               type="search"
-                               placeholder="Cari Buku"
-                               aria-label="Search"
-                               name="cari_buku"
-                               value="{{ $cari_buku }}">
-                        <button class="btn btn-outline-light d-flex justify-content-center align-items-center"
-                                type="submit"><i class="fas fa-search"></i> Cari</button>
-                    </form>
-                </div>
-            </div>
-            <div class="container shadow book-content row my-5">
-                <div class="row">
-                    <div class="col-12">
-                        <h4>PERPUSTAKAAN : {{ $category->name }}</h4>
-                    </div>
-                    <div class="divider">
-                        <br>
+            <div class="col-10 mx-auto">
+                <div class="row p-5 rounded mx-auto shadow hero">
+                    <div class="col-8 col-sm-12 mx-auto my-5 w-100">
+                        <form class="d-flex"
+                              role="search"
+                              @if($cari_buku===null)
+                              action='{{ route('homeByCategory', $category->id) }}'
+                              @else
+                              action='{{ route('cari_buku_perkategori', [$category->id, $cari_buku]) }}'
+                              @endif
+                              method="GET">
+                            @csrf
+                            <input class="form-control me-2"
+                                   type="search"
+                                   placeholder="Cari Buku"
+                                   aria-label="Search"
+                                   name="cari_buku"
+                                   value="{{ $cari_buku }}">
+                            <button class="btn btn-outline-light d-flex justify-content-center align-items-center"
+                                    type="submit"><i class="fas fa-search"></i> Cari</button>
+                        </form>
                     </div>
                 </div>
-                <div class="row d-flex mx-auto">
-                    @forelse ($datas as $data)
-                    <div class="col-12 col-md-6 col-lg-4">
-
-                        <div class="card book shadow rounded p-3 m-3 d-flex">
-                            <div class="row w-100">
-                                <div class="col-6">
-                                    <div class="book-cover">
-                                        <img src="{{ Storage::url($data->cover) }}"
-                                             alt="Cover Buku {{ $data->judul }}"
-                                             class="img-fluid">
-                                    </div>
-                                </div>
-
-                                <div class="col-6">
-                                    <div class="book-detail">
-
-                                        <h6 class="fw-bold">{{ $data->judul }}</h6>
-                                        <hr>
-                                        <p><span class="fw-bold">Penulis: </span> {{ $data->penulis }}</p>
-                                    </div>
-                                </div>
-                                <div class="col-12 m-2">
-                                    @if ($data->quantity > 0)
-                                    <h6>Stock: <span>{{ $data->quantity }}</span></h6>
-                                    @else
-                                    <h6 class="text-danger fw-bold text-center">TIDAK TERSEDIA</h6>
-                                    @endif
-                                </div>
-                                <div class="book-action">
-                                    <a href="/detail/{{ $data->id }}"
-                                       class="list-unstyled text-decoration-none text-dark">
-                                        <button class="btn btn-primary d-block w-100 fw-bold">Detail</button>
-                                    </a>
-                                </div>
-                            </div>
-
+                <div class="container shadow book-content row my-5">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>PERPUSTAKAAN : {{ $category->name }}</h4>
+                        </div>
+                        <div class="divider">
+                            <br>
                         </div>
                     </div>
-                    @empty
-                    <h1 class="text-center text-muted p-5">- TIDAK ADA BUKU -</h1>
-                    @endforelse
-                </div>
-                {{ $datas->links('pagination::bootstrap-5') }}
-            </div>
+                    <div class="row d-flex mx-auto">
+                        @forelse ($datas as $data)
+                        <div class="col-12 col-md-6 col-lg-4">
 
+                            <div class="card book shadow rounded p-3 m-3 d-flex">
+                                <div class="row w-100">
+                                    <div class="col-6">
+                                        <div class="book-cover">
+                                            <img src="{{ Storage::url($data->cover) }}"
+                                                 alt="Cover Buku {{ $data->judul }}"
+                                                 class="img-fluid">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-6">
+                                        <div class="book-detail">
+
+                                            <h6 class="fw-bold">{{ $data->judul }}</h6>
+                                            <hr>
+                                            <p><span class="fw-bold">Penulis: </span> {{ $data->penulis }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-12 m-2">
+                                        @if ($data->quantity > 0)
+                                        <h6>Stock: <span>{{ $data->quantity }}</span></h6>
+                                        @else
+                                        <h6 class="text-danger fw-bold text-center">TIDAK TERSEDIA</h6>
+                                        @endif
+                                    </div>
+                                    <div class="book-action">
+                                        <a href="/detail/{{ $data->id }}"
+                                           class="list-unstyled text-decoration-none text-dark">
+                                            <button class="btn btn-primary d-block w-100 fw-bold">Detail</button>
+                                        </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        @empty
+                        <h1 class="text-center text-muted p-5">- TIDAK ADA BUKU -</h1>
+                        @endforelse
+                    </div>
+                    {{ $datas->links('pagination::bootstrap-5') }}
+                </div>
+            </div>
         </div>
     </div>
 </div>
