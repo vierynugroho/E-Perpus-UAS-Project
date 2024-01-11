@@ -60,7 +60,7 @@ class LiterasiController extends Controller
                 'judul' => 'required',
                 'id_buku' => 'required',
                 'halaman' => 'required',
-                'ringkasan' => 'required|min:200',
+                'ringkasan' => 'required|min:300',
             ]);
 
 
@@ -111,7 +111,7 @@ class LiterasiController extends Controller
                 'judul' => 'required',
                 'id_buku' => 'required',
                 'halaman' => 'required',
-                'ringkasan' => 'required|min:200',
+                'ringkasan' => 'required|min:300',
             ]);
 
 

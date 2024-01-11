@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('id_kategori')->unsigned();;
             $table->string('tahun', 4);
             $table->integer('quantity')->default(1);
-            $table->string('cover', 4);
+            $table->string('cover', 255);
             $table->text('sinopsis');
             $table->timestamps();
 

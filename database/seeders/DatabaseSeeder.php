@@ -22,19 +22,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        $category = new Category;
-        $category->id = 1;
-        $category->name = 'Informatika';
-        $category->created_at = now();
-        $category->save();
 
-        $buku = new Book;
-        $buku->id = 1;
-        $buku->id_kategori = 1;
-        $buku->judul = 'Desain Analisa Algoritma';
-        $buku->penulis = 'Sigit Rendang';
-        $buku->tahun = '2024';
-        $buku->quantity = 5;
-        $buku->save();
+        $this->call(UserSeeder::class);
+        $this->call(CategorySeeder::class);
+        $this->call(BookSeeder::class);
+        $this->call(PinjamSeeder::class);
+        $this->call(LiterationSeeder::class);
     }
 }
