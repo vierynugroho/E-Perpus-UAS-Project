@@ -58,10 +58,11 @@
                                name="id_user"
                                value="{{ auth()->user()->nik }}">
                         @if ($data->quantity <= 0)
-                            <button class="btn btn-danger d-block w-100"
-                                    disabled>STOK HABIS</button>
+                           <button
+                           class="btn btn-danger d-block w-100"
+                           disabled>STOK HABIS</button>
                             @elseif(auth()->user()->is_admin)
-                            @else
+                            ''
                             <button class="btn btn-primary d-block w-100"
                                     type="submit">Pinjam</button>
                             @endif
