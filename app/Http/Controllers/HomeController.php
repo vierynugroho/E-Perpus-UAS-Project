@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function index(Request $request)
     {
         $cari_buku = $request->input('cari_buku');
-        $datas = $cari_buku ? Book::where('judul', 'like', '%' . $cari_buku . '%')->get() : Book::paginate(9)->withQueryString();
+        $datas = $cari_buku ? Book::where('judul', 'like', '%' . $cari_buku . '%')->paginate(9) : Book::paginate(9);
         $categories = Category::all();
 
         return view('home', [
