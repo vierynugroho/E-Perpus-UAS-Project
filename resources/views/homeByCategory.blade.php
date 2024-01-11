@@ -44,7 +44,7 @@
                             <div class="row w-100">
                                 <div class="col-6">
                                     <div class="book-cover">
-                                        <img src="https://berita.99.co/wp-content/uploads/2022/08/Contoh-Cover-Buku-Noverl-Simple-yang-Populer.jpg"
+                                        <img src="{{ Storage::url($data->cover) }}"
                                              alt="Cover Buku {{ $data->judul }}"
                                              class="img-fluid">
                                     </div>
