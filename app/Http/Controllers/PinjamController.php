@@ -22,7 +22,7 @@ class PinjamController extends Controller
 
         // user information
         $count_pinjam_user = Pinjam::where('id_user', auth()->user()->nik)
-            ->whereIn('status_pinjam', ['PENDING', 'DIPINJAM'])
+            ->whereIn('status_pinjam', ['DIPINJAM'])
             ->count();
 
 

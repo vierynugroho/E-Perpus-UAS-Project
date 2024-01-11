@@ -17,7 +17,7 @@ class DaftarHistoryPinjamController extends Controller
         $datas = Pinjam::where('status_pinjam', ['DIKEMBALIKAN'])->get();
         $count_dikembalikan = Pinjam::whereIn('status_pinjam', ['DIKEMBALIKAN'])
             ->count();
-        $count_dipinjam = Pinjam::whereIn('status_pinjam', ['PENDING', 'DIPINJAM'])
+        $count_dipinjam = Pinjam::whereIn('status_pinjam', ['DIPINJAM'])
             ->count();
         $count_peminjam = Pinjam::distinct('id_user')->count('id_user');
         return view('pages.admin.daftarHistoriPinjam', [
