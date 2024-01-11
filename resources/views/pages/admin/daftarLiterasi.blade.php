@@ -121,7 +121,7 @@
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $data->user->name }}</td>
                                 <td>{{ $data->judul }}</td>
-                                <td>{{ $data->halaman }}</td>
+                                <td>{{ $data->halaman_dibaca }}</td>
                                 <td>
                                     <div class="dropdown">
                                         <a class="btn btn-outline-primary dropdown-toggle"

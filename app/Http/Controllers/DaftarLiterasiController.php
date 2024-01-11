@@ -23,7 +23,6 @@ class DaftarLiterasiController extends Controller
             ->count('id_user');
         $count_buku_dipinjam = Pinjam::distinct('id_buku')
             ->count('id_buku');
-        $halaman = Literation::get('halaman');
 
         return view('pages.admin.daftarLiterasi', [
             'datas' => $datas,
@@ -31,8 +30,6 @@ class DaftarLiterasiController extends Controller
             'count_buku_dibaca' => $count_buku_dibaca,
             'count_anggota_literasi' => $count_anggota_literasi,
             'count_buku_dipinjam' => $count_buku_dipinjam,
-
-            'halaman' => $halaman
         ]);
     }
 

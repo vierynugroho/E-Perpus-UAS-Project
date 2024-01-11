@@ -91,16 +91,18 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
+                    <div class="row">
                         <div class="col-12">
-                            <div class="form-floating">
+                            <label for="id_label_single"
+                                   class="w-100">
+                                Kategori Buku
                                 <select class="form-select @error('id_kategori')
                                            is-invalid
-                                       @enderror"
+                                       @enderror js-example-basic-single"
                                         id="floatingSelect"
                                         aria-label="Kategori"
-                                        name="id_kategori">
-
+                                        name="id_kategori"
+                                        style="width: 100%">
                                     <option selected
                                             hidden
                                             value="{{ $book->id_kategori }}">
@@ -110,15 +112,14 @@
                                     <option value="{{ $category->id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
-                                <label for="floatingSelect">Kategori</label>
+                            </label>
 
-                                @error('id_kategori')
-                                <span class="invalid-feedback"
-                                      role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                            @error('id_kategori')
+                            <span class="invalid-feedback"
+                                  role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
 
@@ -231,5 +232,14 @@
             .catch(error => {
                 console.error(error);
             });
+</script>
+
+{{-- SELECT 2 --}}
+<script>
+    $(document).ready(function() {
+        $('.js-example-basic-single').select2({
+            width: 'resolve'
+        });
+    });
 </script>
 @endpush
