@@ -112,7 +112,7 @@
                             @foreach ($leaderboards as $leaderboard)
                             <tr>
                                 <td>{{ $i++ }}</td>
-                                <td>{{$leaderboard->id_user}}</td>
+                                <td>{{$leaderboard->user->name}}</td>
                                 <td>{{ $leaderboard->jumlah_literasi }}</td>
                             </tr>
                             @endforeach

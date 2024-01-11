@@ -26,7 +26,7 @@
                         <div class="col-6">
                             <h6 class="fw-bold">Halaman</h6>
                             <p>
-                                Halaman {{ $literasi->halaman }}
+                                Halaman {{ $literasi->halaman_dibaca }}
                             </p>
                         </div>
                         <div class="col-6">

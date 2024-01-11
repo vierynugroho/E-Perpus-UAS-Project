@@ -26,7 +26,7 @@ class UserSeeder extends Seeder
 
         for ($i = 1; $i <= 3; $i++) {
             User::create([
-                'nik' => '000000000000000' . $i,
+                'nik' => '100000000000000' . $i,
                 'name' => 'User ' . $i,
                 'email' => 'user' . $i . '@gmail.com',
                 'email_verified_at' => now(),

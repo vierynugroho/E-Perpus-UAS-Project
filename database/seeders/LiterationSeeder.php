@@ -17,7 +17,7 @@ class LiterationSeeder extends Seeder
         for ($i = 1; $i <= 12; $i++) {
             Literation::create([
                 'id' => $i,
-                'id_user' => '000000000000000' . random_int(1, 3),
+                'id_user' => '100000000000000' . random_int(1, 3),
                 'judul' => Str::random(10),
                 'id_buku' => random_int(1, 3),
                 'halaman_dibaca' => random_int(1, 9) . " - " . random_int(2, 99),

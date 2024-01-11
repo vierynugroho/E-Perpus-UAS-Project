@@ -17,7 +17,7 @@ class PinjamSeeder extends Seeder
         for ($i = 1; $i <= 12; $i++) {
             Pinjam::create([
                 'id' => $i,
-                'id_user' => '000000000000000' . random_int(1, 3),
+                'id_user' => '100000000000000' . random_int(1, 3),
                 'id_buku' => random_int(1, 3),
                 'status_pinjam' => Arr::random(['DIPINJAM', 'PENDING', 'DIKEMBALIKAN']),
                 'created_at' => now(),

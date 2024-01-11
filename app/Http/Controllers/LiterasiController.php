@@ -59,11 +59,9 @@ class LiterasiController extends Controller
             $validatedData = $request->validate([
                 'judul' => 'required',
                 'id_buku' => 'required',
-                'halaman' => 'required',
+                'halaman_dibaca' => 'required',
                 'ringkasan' => 'required|min:300',
             ]);
-
-
             $validatedData['id_user'] = auth()->user()->nik;
 
             Literation::create($validatedData);
@@ -110,14 +108,14 @@ class LiterasiController extends Controller
             $validatedData = $request->validate([
                 'judul' => 'required',
                 'id_buku' => 'required',
-                'halaman' => 'required',
+                'halaman_dibaca' => 'required',
                 'ringkasan' => 'required|min:300',
             ]);
 
 
             $literasi->judul = $validatedData['judul'];
             $literasi->id_buku = $validatedData['id_buku'];
-            $literasi->halaman = $validatedData['halaman'];
+            $literasi->halaman_dibaca = $validatedData['halaman_dibaca'];
             $literasi->ringkasan = $validatedData['ringkasan'];
 
             $literasi->save();

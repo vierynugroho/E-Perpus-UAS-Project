@@ -76,18 +76,18 @@
                         <div class="col-4">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control @error('halaman')
+                                       class="form-control @error('halaman_dibaca')
                                                is-invalid
                                            @enderror"
                                        id="floatingInput"
                                        placeholder="Halaman Dibaca"
-                                       name="halaman"
+                                       name="halaman_dibaca"
                                        value="example: 1 - 10"
                                        required
-                                       autocomplete="halaman"
+                                       autocomplete="halaman_dibaca"
                                        autofocus>
                                 <label for="floatingInput">Halaman Dibaca</label>
-                                @error('halaman')
+                                @error('halaman_dibaca')
                                 <span class="invalid-feedback"
                                       role="alert">
                                     <strong>{{ $message }}</strong>
@@ -103,7 +103,7 @@
                                            is-invalid
                                        @enderror">Ringkasan
                                 <p>
-                                    <small>* Panjang ringkasan minimal 200
+                                    <small>*Panjang ringkasan minimal 300
                                         karakter</small>
                                 </p>
                             </label>

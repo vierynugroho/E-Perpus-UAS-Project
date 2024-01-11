@@ -25,29 +25,30 @@
                     @method('PUT')
                     <div class="form-group row">
                         <div class="col-12 mb-3">
-                            <div class="form-floating">
-                                <select class="form-select @error('id_buku')
-                                    is-invalid
-                                @enderror"
-                                        id="floatingSelect"
-                                        aria-label="Judul Buku"
+                            <label for="id_label_single"
+                                   class="w-100">
+                                Judul Buku
+                                <select class="js-example-basic-single form-select @error('id_buku')
+                                                    is-invalid
+                                            @enderror"
+                                        id="inputGroupSelect"
                                         name="id_buku"
-                                        required>
-                                    <option selected
-                                            hidden
-                                            value="{{ $data->id }}">{{ $data->book->judul }}</option>
+                                        required
+                                        style="width: 100%">
+                                    <option value="{{ $data->id_buku }}"
+                                            selected
+                                            hidden>{{ $data->book->judul }}</option>
                                     @foreach ($books as $book)
                                     <option value="{{ $book->id }}">{{ $book->judul }}</option>
                                     @endforeach
                                 </select>
-                                <label for="floatingSelect">Judul Buku</label>
-                                @error('id_buku')
-                                <span class="invalid-feedback"
-                                      role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
-                                @enderror
-                            </div>
+                            </label>
+                            @error('id_buku')
+                            <span class="invalid-feedback"
+                                  role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
                         </div>
                     </div>
                     <div class="form-group row">
@@ -76,18 +77,18 @@
                         <div class="col-4">
                             <div class="form-floating mb-3">
                                 <input type="text"
-                                       class="form-control @error('halaman')
+                                       class="form-control @error('halaman_dibaca')
                                                is-invalid
                                            @enderror"
                                        id="floatingInput"
                                        placeholder="Halaman Dibaca"
-                                       name="halaman"
-                                       value="{{$data->halaman}}"
+                                       name="halaman_dibaca"
+                                       value="{{$data->halaman_dibaca}}"
                                        required
-                                       autocomplete="halaman"
+                                       autocomplete="halaman_dibaca"
                                        autofocus>
                                 <label for="floatingInput">Halaman Dibaca</label>
-                                @error('halaman')
+                                @error('halaman_dibaca')
                                 <span class="invalid-feedback"
                                       role="alert">
                                     <strong>{{ $message }}</strong>
@@ -101,7 +102,7 @@
                             <label for="ringkasan"
                                    class="form-label">Ringkasan
                                 <p>
-                                    <small>* Panjang ringkasan minimal 200
+                                    <small>*Panjang ringkasan minimal 300
                                         karakter</small>
                                 </p>
                             </label>
@@ -128,15 +129,24 @@
             </div>
         </div>
     </div>
-    </form>
-    @endsection
+</div>
+@endsection
 
-    @push('addOnBottomScript')
-    <script>
-        ClassicEditor
+@push('addOnBottomScript')
+<script>
+    ClassicEditor
         .create( document.querySelector( '#ckeditor' ) )
         .catch( error => {
             console.error( error );
         } );
-    </script>
-    @endpush
+</script>
+
+{{-- SELECT 2 --}}
+<script>
+    $(document).ready(function() {
+            $('.js-example-basic-single').select2({
+                width: 'resolve'
+            });
+        });
+</script>
+@endpush

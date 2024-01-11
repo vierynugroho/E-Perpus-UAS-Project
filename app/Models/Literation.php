@@ -16,7 +16,9 @@ class Literation extends Model
         'id_buku',
         'id_user',
         'ringkasan',
-        'halaman',
+        'halaman_dibaca',
+        'created_at',
+        'updated_at',
     ];
 
     public function user()

@@ -121,7 +121,7 @@
                             <tr>
                                 <td>{{ $i++ }}</td>
                                 <td>{{ $data->judul }}</td>
-                                <td>{{ $data->halaman }}</td>
+                                <td>{{ $data->halaman_dibaca }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>
                                     <div class="dropdown">
