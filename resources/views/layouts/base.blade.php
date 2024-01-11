@@ -26,10 +26,6 @@
               rel="stylesheet"
               type="text/css">
 
-        <link rel="favicon"
-              href="{{ asset('images/logo.jpg') }}"
-              type="image/x-icon">
-
         {{-- JQuery --}}
         <script src="{{ asset('DataTables/jQuery-3.7.0/jquery-3.7.0.min.js') }}"></script>
 
@@ -52,6 +48,10 @@
         <link rel="stylesheet"
               href="{{ asset('DataTables/DataTables-1.13.8/css/dataTables.bootstrap5.css') }}">
 
+
+        <link rel="icon"
+              type="image/png"
+              href="{{ asset('images/logo.jpg') }}">
         {{-- AddOn Script --}}
         @stack('addOnTopScript')
     </head>
