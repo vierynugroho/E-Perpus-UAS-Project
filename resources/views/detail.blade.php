@@ -62,11 +62,11 @@
                            class="btn btn-danger d-block w-100"
                            disabled>STOK HABIS</button>
                             @elseif(auth()->user()->is_admin)
-                            <<<<<<< HEAD ''======='rewel'
-                                    @else>>>>>>> 6a79a84d7951b4bc1035bc919ae78f0a70376a6d
-                                <button class="btn btn-primary d-block w-100"
-                                        type="submit">Pinjam</button>
-                                @endif
+                            ''
+                            @else
+                            <button class="btn btn-primary d-block w-100"
+                                    type="submit">Pinjam</button>
+                            @endif
                     </form>
                 </div>
             </div>
