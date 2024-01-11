@@ -41,7 +41,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <h6>Sinopsis</h6>
+                            <h6 class="fw-bold">Sinopsis</h6>
                             {!! $data->sinopsis !!}
                         </div>
                     </div>
