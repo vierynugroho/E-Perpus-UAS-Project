@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="row">
             <div class="col-10 mx-auto">
-                <div class="row bg-primary p-5 rounded mx-auto shadow">
+                <div class="row p-5 rounded mx-auto shadow hero">
                     <div class="col-6 col-sm-12 mx-auto my-5 w-100">
                         <form class="d-flex"
                               role="search"
@@ -22,8 +22,8 @@
                                    aria-label="Search"
                                    name="cari_buku"
                                    value="{{ $cari_buku }}">
-                            <button class="btn btn-outline-light"
-                                    type="submit">Cari</button>
+                            <button class="btn btn-outline-light d-flex justify-content-center align-items-center"
+                                    type="submit"><i class="fas fa-search"></i> Cari</button>
                         </form>
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         <div class="col-6 col-md-3">
                             <a href="/homebycategory/{{ $category->id }}"
                                class="text-decoration-none">
-                                <div class="card shadow rounded mb-3">
+                                <div class="card shadow rounded mb-3 category text-bg-dark">
                                     <div class="card-body mx-auto">
                                         <h6>{{ $category->name }}</h6>
                                     </div>
@@ -112,7 +112,7 @@
 @endsection
 
 @section('footer_content')
-<footer class="mt-3 shadow">
+<footer class="mt-3 shadow bg-primary text-bg-primary pt-2">
     <div class="row w-100">
         <div class="px-5 col-4 d-flex justify-content-start flex-column">
             <img src="{{ asset('images/logo.jpg') }}"
@@ -135,5 +135,4 @@
         </div>
     </div>
 </footer>
-
 @endsection

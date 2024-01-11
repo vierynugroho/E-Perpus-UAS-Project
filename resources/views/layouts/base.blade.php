@@ -15,10 +15,20 @@
         <!-- Fonts -->
         <link rel="stylesheet"
               href="{{ asset('css/app.css') }}">
+
         <link rel="dns-prefetch"
               href="//fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=Nunito"
               rel="stylesheet">
+
+        {{-- Font Awesome --}}
+        <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}"
+              rel="stylesheet"
+              type="text/css">
+
+        <link rel="favicon"
+              href="{{ asset('images/logo.jpg') }}"
+              type="image/x-icon">
 
         {{-- JQuery --}}
         <script src="{{ asset('DataTables/jQuery-3.7.0/jquery-3.7.0.min.js') }}"></script>

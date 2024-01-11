@@ -10,3 +10,20 @@
     background-color: #0d6efd;
     /* Ganti dengan kode warna yang diinginkan */
 }
+
+
+/* hero */
+
+div.hero {
+    background-image: url('../images/hero.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+div.category {
+    background-image: url('../images/category.png');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}

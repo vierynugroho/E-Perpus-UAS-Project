@@ -44,7 +44,7 @@ class HomeController extends Controller
         $cari_buku = $request->input('cari_buku');
         $datas = Book::where('id_kategori', $id)
             ->where('judul', 'like', '%' . $cari_buku . '%')
-            ->get();
+            ->paginate(9);
         $category = Category::findOrFail($id);
 
         return view('homeByCategory', [
