@@ -85,7 +85,6 @@
                                                    href="/dashboard/pinjam/{{ $data->id }}"><i
                                                        class="fas fa-eye fa-sm text-primary"></i> Detail</a>
                                             </li>
-                                            @if (!$data->status_pinjam === 'DIPINJAM')
                                             <li>
                                                 <form action="{{ route('pinjam.destroy', $data->id) }}"
                                                       method="post">
@@ -96,9 +95,6 @@
                                                            class="fas fa-trash fa-sm text-primary"></i> Hapus</button>
                                                 </form>
                                             </li>
-                                            @else
-                                            {{-- nothing delete action --}}
-                                            @endif
                                         </ul>
                                     </div>
                                 </td>
