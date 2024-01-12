@@ -90,7 +90,8 @@
                                 <td>{{ $data->tahun }}</td>
                                 <td>{{ $data->quantity }}</td>
                                 <td>
-                                    <div class="dropdown">
+                                    <div class="
+                                dropdown">
                                         <a class="btn btn-outline-primary dropdown-toggle"
                                            href="#"
                                            role="button"
@@ -113,7 +114,8 @@
                                                     @csrf
                                                     <button class="dropdown-item"
                                                             type="submit"><i
-                                                           class="fas fa-trash fa-sm text-primary"></i> Hapus</button>
+                                                           class="fas fa-trash fa-sm text-primary"></i>
+                                                        Hapus</button>
                                                 </form>
                                             </li>
                                         </ul>

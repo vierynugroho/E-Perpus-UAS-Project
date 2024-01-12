@@ -82,12 +82,16 @@
                                 <td>{{ $data->book->judul }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>
+                                    @if ($data->book->quantity === 0 && $data->status_pinjam === 'PENDING')
+                                    <p class="badge text-bg-danger bg-danger p-2">STOK HABIS</p>
+                                    @else
                                     @if ($data->status_pinjam === 'PENDING')
                                     <p class="badge text-bg-warning bg-warning p-2">PENDING</p>
                                     @elseif ($data->status_pinjam === 'DIPINJAM')
                                     <p class="badge text-bg-primary bg-primary p-2">DIPINJAM</p>
                                     @else
                                     <p class="badge text-bg-success bg-success p-2">DIKEMBALIKAN</p>
+                                    @endif
                                     @endif
                                 </td>
                                 <td>
@@ -101,10 +105,13 @@
                                         </a>
 
                                         <ul class="dropdown-menu">
+                                            @if ($data->book->quantity === 0 && $data->status_pinjam === 'PENDING')
+                                            @else
                                             <li><a class="dropdown-item"
                                                    href="/dashboard/daftarpinjam/{{ $data->id }}/edit"><i
                                                        class="fas fa-pen fa-sm text-primary"></i> Edit</a>
                                             </li>
+                                            @endif
                                             <li>
                                                 <form action="{{ route('daftarpinjam.destroy', $data->id) }}"
                                                       method="post">
