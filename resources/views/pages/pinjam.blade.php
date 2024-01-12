@@ -62,12 +62,16 @@
                                 <td>{{ $data->book->penerbit }}</td>
                                 <td>{{ $data->created_at }}</td>
                                 <td>
+                                    @if ($data->book->quantity === 0 && $data->status_pinjam === 'PENDING')
+                                    <p class="badge text-bg-danger bg-danger p-2">STOK HABIS</p>
+                                    @else
                                     @if ($data->status_pinjam === 'PENDING')
                                     <p class="badge text-bg-warning bg-warning p-2">PENDING</p>
                                     @elseif ($data->status_pinjam === 'DIPINJAM')
                                     <p class="badge text-bg-primary bg-primary p-2">DIPINJAM</p>
                                     @else
                                     <p class="badge text-bg-success bg-success p-2">DIKEMBALIKAN</p>
+                                    @endif
                                     @endif
                                 </td>
                                 <td>
