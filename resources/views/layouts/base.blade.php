@@ -57,9 +57,9 @@
     </head>
 
     <body>
-        @if(!Request::is('dashboard*')){
+        @if(!Request::is('dashboard*'))
         <x-navbar></x-navbar>
-        }
+
         @endif
 
         @yield('content')
